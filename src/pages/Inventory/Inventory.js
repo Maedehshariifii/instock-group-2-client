@@ -1,11 +1,11 @@
 import Header from "../../components/Header/Header";
+import InventoryContainer from "../../components/Inventory/InventoryContainer";
 
 function Inventory() {
   return (
     <div>
-      <Header activeNavItem='inventory' />
-      <h2>Inventory</h2>
-      {/* Placeholder content for inventory page */}
+      <Header activeNavItem="inventory" />
+      <InventoryContainer />
     </div>
   );
 }
