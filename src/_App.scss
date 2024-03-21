@@ -1,0 +1,7 @@
+@use "./styles/partials/global";
+@use "./components/Header/Header";
+@use "./styles/partials//fonts";
+
+body {
+  font-family: "titillium", sans-serif;
+}

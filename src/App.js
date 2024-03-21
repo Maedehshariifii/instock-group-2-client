@@ -1,15 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Warehouses from "./components/Warehouses";
-import Inventory from "./components/Inventory";
+import Warehouses from "./pages/Warehouses/Warehouses";
+import Inventory from "./pages/Inventory/Inventory";
+import UnmatchedRoutes from './pages/UnmatchedRoutes/UnmatchedRoutes'
+import "./_App.scss";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Route for homepage or warehouses page */}
-        <Route path="/warehouses" element={Warehouses} />
+        <Route path="/" element={<Warehouses />} />
+        <Route path="/warehouses" element={<Warehouses />} />
         {/* Route for inventory page */}
-        <Route path="/inventory" element={Inventory} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/*" element={<UnmatchedRoutes />} />
+
       </Routes>
     </BrowserRouter>
   );

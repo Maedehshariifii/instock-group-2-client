@@ -11,3 +11,22 @@
     @content;
   }
 }
+
+@mixin setCallToActionStyleMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  height: 2.25rem; //36px
+  padding-left: 1rem;
+  padding-right: 1rem;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $color-white;
+  }
+}
+
+@mixin setCallToActionStyleTablet {
+  height: 2.375rem; // 38px
+}
