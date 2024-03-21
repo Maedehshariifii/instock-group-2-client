@@ -6,7 +6,9 @@ import axios from "axios";
 
 const InventoryContainer = () => {
   const [inventoryData, setInventoryData] = useState([]);
+  const [warehousesData, setWareHousesdata] = useState([]);
 
+  // This useEffect fetches the inventory data when the component mounts
   useEffect(() => {
     const fetchInventory = async () => {
       try {
@@ -18,6 +20,20 @@ const InventoryContainer = () => {
       }
     };
     fetchInventory();
+  }, []);
+
+  // This useEffect fetches the warehouses data when the component loads
+  useEffect(() => {
+    const fetchWarehouses = async () => {
+      try {
+        const resp = await axios.get("http://localhost:8080/api/warehouses");
+        console.log(resp.data);
+        setWareHousesdata(resp.data);
+      } catch (err) {
+        console.error("Error fetching warehouse data:", err);
+      }
+    };
+    fetchWarehouses();
   }, []);
 
   return (
@@ -34,9 +50,20 @@ const InventoryContainer = () => {
         </div>
         <button className="form-cta">+ Add New Warehouse</button>
         <hr></hr>
-        {inventoryData.map((item) => (
-          <InventoryCard key={item.id} item={item} />
-        ))}
+        {/* mapping the inventory list */}
+        {inventoryData.map((item) => {
+          //find the warehouse with id matching the inventory item's warehouse_id
+          const warehouse = warehousesData.find(
+            (warehouse) => warehouse.id === item.warehouse_id
+          );
+          return (
+            <InventoryCard
+              key={item.id}
+              item={item}
+              warehouseName={warehouse?.warehouse_name}
+            />
+          );
+        })}
       </section>
     </>
   );

@@ -8,7 +8,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Route for homepage or warehouses page */}
+        {/* Routes for homepage or warehouses page */}
+        <Route path="/" element={<Warehouses />} />
         <Route path="/warehouses" element={<Warehouses />} />
         {/* Route for inventory page */}
         <Route path="/inventory" element={<Inventory />} />
