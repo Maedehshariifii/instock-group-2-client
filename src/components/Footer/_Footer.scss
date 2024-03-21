@@ -1,0 +1,7 @@
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  color: $color-slate;
+}
