@@ -1,5 +1,25 @@
+import InventoryCard from "./InventoryCard";
 import "./InventoryContainer.scss";
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 const InventoryContainer = () => {
+  const [inventoryData, setInventoryData] = useState([]);
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const resp = await axios.get("http://localhost:8080/api/inventories");
+        console.log(resp.data);
+        setInventoryData(resp.data);
+      } catch (error) {
+        console.error("Error fetching inventory data:", error);
+      }
+    };
+    fetchInventory();
+  }, []);
+
   return (
     <>
       <section className="card-container">
@@ -14,6 +34,9 @@ const InventoryContainer = () => {
         </div>
         <button className="form-cta">+ Add New Warehouse</button>
         <hr></hr>
+        {inventoryData.map((item) => (
+          <InventoryCard key={item.id} item={item} />
+        ))}
       </section>
     </>
   );
