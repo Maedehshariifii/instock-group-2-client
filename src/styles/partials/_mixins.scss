@@ -37,7 +37,13 @@
   color: $color-slate;
 }
 
+@mixin pageHeading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
 @mixin mediumText {
-  font-size: 12px;
+  font-size: 0.82rem;
   line-height: 22px;
 }

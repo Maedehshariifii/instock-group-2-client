@@ -3,6 +3,8 @@
 
 .header {
   background-color: $color-graphite;
+  height: 200px; // Set the default mobile height to 200px
+
   .header-content {
     .header-logo {
       display: flex;
@@ -63,6 +65,7 @@
       padding-left: 5rem;
       padding-right: 5rem;
       max-width: 1280px;
+      height: auto; // Resetting height for desktop
     }
   }
 }
