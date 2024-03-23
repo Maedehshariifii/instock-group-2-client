@@ -22,20 +22,6 @@ const InventoryContainer = () => {
     fetchInventory();
   }, []);
 
-  // This useEffect fetches the warehouses data when the component loads
-  useEffect(() => {
-    const fetchWarehouses = async () => {
-      try {
-        const resp = await axios.get("http://localhost:8080/api/warehouses");
-        console.log(resp.data);
-        setWareHousesdata(resp.data);
-      } catch (err) {
-        console.error("Error fetching warehouse data:", err);
-      }
-    };
-    fetchWarehouses();
-  }, []);
-
   return (
     <>
       <section className="card-container">
@@ -52,17 +38,7 @@ const InventoryContainer = () => {
         <hr></hr>
         {/* mapping the inventory list */}
         {inventoryData.map((item) => {
-          //find the warehouse with id matching the inventory item's warehouse_id
-          const warehouse = warehousesData.find(
-            (warehouse) => warehouse.id === item.warehouse_id
-          );
-          return (
-            <InventoryCard
-              key={item.id}
-              item={item}
-              warehouseName={warehouse?.warehouse_name}
-            />
-          );
+          return <InventoryCard key={item.id} item={item} />;
         })}
       </section>
     </>
