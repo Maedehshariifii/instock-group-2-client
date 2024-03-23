@@ -9,34 +9,43 @@ const InventoryCard = ({ item }) => {
 
   return (
     <>
+      <hr className="inventory-card__divider"></hr>
       <div className="inventory-card">
-        <h4 className="inventory-card__heading">INVENTORY ITEM</h4>
-        <p className="inventory-card__item">
-          {item.item_name}
-          <img
-            src={RightChevron}
-            alt="Right Chevron"
-            className="inventory-card__icon"
-          />
-        </p>
-        <h4 className="inventory-card__heading">STATUS</h4>
-        <p
-          className={`inventory-card__status inventory-card__status--${statusClass}`}
-        >
-          {item.status.toUpperCase()}
-        </p>
-        <h4 className="inventory-card__heading">CATEGORY</h4>
-        <p className="inventory-card__item-details">{item.category}</p>
-        <h4 className="inventory-card__heading">QTY</h4>
-        <p className="inventory-card__item-details">{item.quantity}</p>
-        <h4 className="inventory-card__heading">WAREHOUSE</h4>
-        <p className="inventory-card__item-details">{item.warehouse_name}</p>
+        <div className="inventory-card__layout">
+          <div className="inventory-card__layout--left">
+            <h4 className="inventory-card__heading">INVENTORY ITEM</h4>
+            <p className="inventory-card__item">
+              {item.item_name}
+              <img
+                src={RightChevron}
+                alt="Right Chevron"
+                className="inventory-card__icon"
+              />
+            </p>
+            <h4 className="inventory-card__heading">CATEGORY</h4>
+            <p className="inventory-card__item-details">{item.category}</p>
+          </div>
+          <div className="inventory-card__layout--right">
+            <h4 className="inventory-card__heading">STATUS</h4>
+            <p
+              className={`inventory-card__status inventory-card__status--${statusClass}`}
+            >
+              {item.status.toUpperCase()}
+            </p>
+
+            <h4 className="inventory-card__heading">QTY</h4>
+            <p className="inventory-card__item-details">{item.quantity}</p>
+            <h4 className="inventory-card__heading">WAREHOUSE</h4>
+            <p className="inventory-card__item-details">
+              {item.warehouse_name}
+            </p>
+          </div>
+        </div>
         <div className="inventory-card__edit-delete">
           <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
-      <hr className="inventory-card__divider"></hr>
     </>
   );
 };

@@ -24,17 +24,19 @@ const InventoryContainer = () => {
   return (
     <>
       <section className="card-container">
-        <h1 className="page-heading">Inventory</h1>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="search__input"
-          />
-          <button className="search__button"></button>
+        <h1 className="card-container__heading">Inventory</h1>
+        <div>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="search__input"
+            />
+            <button className="search__button"></button>
+          </div>
+          <button className="form-cta">+ Add New Item</button>
         </div>
-        <button className="form-cta">+ Add New Warehouse</button>
-        <hr></hr>
+
         {/* mapping the inventory list */}
         {inventoryData.map((item) => {
           return <InventoryCard key={item.id} item={item} />;
