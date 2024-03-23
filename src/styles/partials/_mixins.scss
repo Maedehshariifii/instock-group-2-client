@@ -36,3 +36,8 @@
   font-size: 12px;
   color: $color-slate;
 }
+
+@mixin mediumText {
+  font-size: 12px;
+  line-height: 22px;
+}

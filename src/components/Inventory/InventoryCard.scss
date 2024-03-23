@@ -3,10 +3,27 @@
 
 .inventory-card {
   padding: 20px;
-  margin-bottom: 20px;
 
   &__icon {
     vertical-align: middle; /* Align icon with text */
+  }
+
+  &__item {
+    @include mediumText;
+    color: $color-instock-indigo;
+  }
+  &__item-details {
+    @include mediumText;
+  }
+
+  &__heading {
+    @include tableHeader;
+    margin: 0;
+  }
+
+  &__edit-delete {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__status {
@@ -14,9 +31,8 @@
     height: 1.5rem; // Mobile height
     padding: 0 8px;
     line-height: 1.5rem; // Align text vertically
-    text-align: center;
     border-radius: 20px;
-    font-size: 0.8rem;
+    @include mediumText;
 
     // Desktop & tablet styles
     @media (min-width: 768px) {
@@ -34,8 +50,4 @@
     background-color: rgba(201, 69, 21, 0.07); // Red with 7% opacity
     color: $color-red;
   }
-}
-
-.inventory-card__heading {
-  @include tableHeader;
 }
