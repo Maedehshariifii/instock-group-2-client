@@ -1,4 +1,4 @@
-const InventoryCard = ({ item, warehouseName }) => {
+const InventoryCard = ({ item }) => {
   return (
     <>
       <section>
@@ -11,7 +11,7 @@ const InventoryCard = ({ item, warehouseName }) => {
         <h4>QTY</h4>
         <p>{item.quantity}</p>
         <h4>WAREHOUSE</h4>
-        <p>{warehouseName}</p>
+        <p>{item.warehouse_name}</p>
         <hr></hr>
       </section>
     </>
