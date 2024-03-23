@@ -6,7 +6,6 @@ import axios from "axios";
 
 const InventoryContainer = () => {
   const [inventoryData, setInventoryData] = useState([]);
-  const [warehousesData, setWareHousesdata] = useState([]);
 
   // This useEffect fetches the inventory data when the component mounts
   useEffect(() => {
