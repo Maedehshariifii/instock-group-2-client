@@ -46,6 +46,37 @@ const InventoryCard = ({ item }) => {
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
+
+      {/* Inventory details rendering for desktop and tablet. 
+      The details rendered remain the same as mobile, 
+      but it's much easier to style and re-style */}
+      <div className="inventory-card--tablet">
+        <h4 className="inventory-card__heading--mobile">INVENTORY ITEM</h4>
+        <p className="inventory-card__item">
+          {item.item_name}
+          <img
+            src={RightChevron}
+            alt="Right Chevron"
+            className="inventory-card__icon"
+          />
+        </p>
+        <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
+        <p className="inventory-card__item-details">{item.category}</p>
+        <h4 className="inventory-card__heading--mobile">STATUS</h4>
+        <p
+          className={`inventory-card__status inventory-card__status--${statusClass}`}
+        >
+          {item.status.toUpperCase()}
+        </p>
+        <h4 className="inventory-card__heading--mobile">QTY</h4>
+        <p className="inventory-card__item-details">{item.quantity}</p>
+        <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
+        <p className="inventory-card__item-details">{item.warehouse_name}</p>
+        <div className="inventory-card__edit-delete">
+          <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
+          <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
+        </div>
+      </div>
     </>
   );
 };

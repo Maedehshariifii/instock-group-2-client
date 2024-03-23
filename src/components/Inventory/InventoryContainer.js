@@ -47,7 +47,7 @@ const InventoryContainer = () => {
             />
           </h4>
           <h4 className="inventory-card__heading">
-            CATEGORY{" "}
+            CATEGORY
             <img
               src={SortIcon}
               alt="Sort Icon"
@@ -55,7 +55,7 @@ const InventoryContainer = () => {
             />
           </h4>
           <h4 className="inventory-card__heading">
-            STATUS{" "}
+            STATUS
             <img
               src={SortIcon}
               alt="Sort Icon"
@@ -63,7 +63,7 @@ const InventoryContainer = () => {
             />
           </h4>
           <h4 className="inventory-card__heading">
-            QTY{" "}
+            QTY
             <img
               src={SortIcon}
               alt="Sort Icon"
@@ -71,21 +71,14 @@ const InventoryContainer = () => {
             />
           </h4>
           <h4 className="inventory-card__heading">
-            WAREHOUSE{" "}
+            WAREHOUSE
             <img
               src={SortIcon}
               alt="Sort Icon"
               className="inventory-card__icon"
             />
           </h4>
-          <h4 className="inventory-card__heading">
-            ACTIONS{" "}
-            <img
-              src={SortIcon}
-              alt="Sort Icon"
-              className="inventory-card__icon"
-            />
-          </h4>
+          <h4 className="inventory-card__heading">ACTIONS </h4>
         </div>
 
         {/* mapping the inventory list */}

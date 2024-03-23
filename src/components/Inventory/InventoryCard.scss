@@ -4,6 +4,20 @@
 .inventory-card {
   padding: 20px;
 
+  @include tablet {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
   &__icon {
     vertical-align: middle; /* Align icon with text */
     height: 20px;
@@ -32,6 +46,10 @@
   &__edit-delete {
     display: flex;
     justify-content: space-between;
+
+    @include tablet {
+      justify-content: start;
+    }
   }
 
   &__status {
@@ -61,6 +79,10 @@
 
   &__layout {
     display: flex;
+
+    @include tablet {
+      flex-direction: row; // Only for the overall layout, not individual items
+    }
   }
 
   &__layout--left {
