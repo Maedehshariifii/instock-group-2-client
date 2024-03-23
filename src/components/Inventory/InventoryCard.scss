@@ -6,6 +6,7 @@
 
   &__icon {
     vertical-align: middle; /* Align icon with text */
+    height: 20px;
   }
 
   &__item {
@@ -19,6 +20,13 @@
   &__heading {
     @include tableHeader;
     margin: 0;
+  }
+
+  &__heading--mobile {
+    @extend .inventory-card__heading;
+    @include tablet {
+      display: none;
+    }
   }
 
   &__edit-delete {
@@ -67,5 +75,10 @@
     color: $color-cloud;
     width: 395px;
     margin-left: -30px;
+
+    @include tablet {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }

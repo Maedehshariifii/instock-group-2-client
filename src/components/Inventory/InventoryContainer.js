@@ -1,4 +1,5 @@
 import InventoryCard from "./InventoryCard";
+import SortIcon from "../../assets/icons/sort-24px.svg";
 import "./InventoryContainer.scss";
 
 import React, { useState, useEffect } from "react";
@@ -25,7 +26,7 @@ const InventoryContainer = () => {
     <>
       <section className="card-container">
         <h1 className="card-container__heading">Inventory</h1>
-        <div>
+        <div className="card-container__cta">
           <div className="search">
             <input
               type="text"
@@ -35,6 +36,56 @@ const InventoryContainer = () => {
             <button className="search__button"></button>
           </div>
           <button className="form-cta">+ Add New Item</button>
+        </div>
+        <div className="card-container__table-heading">
+          <h4 className="inventory-card__heading">
+            INVENTORY ITEM
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
+          <h4 className="inventory-card__heading">
+            CATEGORY{" "}
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
+          <h4 className="inventory-card__heading">
+            STATUS{" "}
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
+          <h4 className="inventory-card__heading">
+            QTY{" "}
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
+          <h4 className="inventory-card__heading">
+            WAREHOUSE{" "}
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
+          <h4 className="inventory-card__heading">
+            ACTIONS{" "}
+            <img
+              src={SortIcon}
+              alt="Sort Icon"
+              className="inventory-card__icon"
+            />
+          </h4>
         </div>
 
         {/* mapping the inventory list */}

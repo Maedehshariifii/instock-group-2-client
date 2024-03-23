@@ -12,17 +12,56 @@
   padding-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
+  padding: 10px 30px 0 30px;
+  @include tablet {
+    width: 690px;
+    padding: 10px 0 0 0;
+  }
+
+  &__cta {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 49px;
+      top: 13px;
+    }
+  }
+
+  &__table-heading {
+    display: none;
+    background-color: $color-light-grey;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      padding: 0 2rem;
+    }
+  }
+
+  &__heading {
+    @include tablet {
+      padding: 0 2rem;
+    }
+  }
 }
 
 .search {
   position: relative;
   width: 328px;
-  height: 36px;
+  height: 40px;
+
+  @include tablet {
+    right: 25px;
+    width: 185px;
+  }
 }
 
 .search__input {
   width: 100%;
-  padding: 10px;
+  padding: 9px;
   padding-right: 5px; /* Space for the search icon */
   font-size: 16px;
   border: 1px solid $color-cloud;
@@ -52,4 +91,8 @@
   cursor: pointer;
   background-color: $color-instock-indigo;
   color: $color-white;
+
+  @include tablet {
+    width: 128px;
+  }
 }

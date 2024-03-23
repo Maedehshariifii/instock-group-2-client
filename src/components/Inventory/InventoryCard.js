@@ -13,7 +13,7 @@ const InventoryCard = ({ item }) => {
       <div className="inventory-card">
         <div className="inventory-card__layout">
           <div className="inventory-card__layout--left">
-            <h4 className="inventory-card__heading">INVENTORY ITEM</h4>
+            <h4 className="inventory-card__heading--mobile">INVENTORY ITEM</h4>
             <p className="inventory-card__item">
               {item.item_name}
               <img
@@ -22,20 +22,20 @@ const InventoryCard = ({ item }) => {
                 className="inventory-card__icon"
               />
             </p>
-            <h4 className="inventory-card__heading">CATEGORY</h4>
+            <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
             <p className="inventory-card__item-details">{item.category}</p>
           </div>
           <div className="inventory-card__layout--right">
-            <h4 className="inventory-card__heading">STATUS</h4>
+            <h4 className="inventory-card__heading--mobile">STATUS</h4>
             <p
               className={`inventory-card__status inventory-card__status--${statusClass}`}
             >
               {item.status.toUpperCase()}
             </p>
 
-            <h4 className="inventory-card__heading">QTY</h4>
+            <h4 className="inventory-card__heading--mobile">QTY</h4>
             <p className="inventory-card__item-details">{item.quantity}</p>
-            <h4 className="inventory-card__heading">WAREHOUSE</h4>
+            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
             <p className="inventory-card__item-details">
               {item.warehouse_name}
             </p>
