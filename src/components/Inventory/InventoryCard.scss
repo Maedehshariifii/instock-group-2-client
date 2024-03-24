@@ -1,0 +1,106 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-card {
+  padding: 20px;
+
+  @include tablet {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+  &__icon {
+    vertical-align: middle; /* Align icon with text */
+    height: 20px;
+  }
+
+  &__item {
+    @include mediumText;
+    color: $color-instock-indigo;
+  }
+  &__item-details {
+    @include mediumText;
+  }
+
+  &__heading {
+    @include tableHeader;
+    margin: 0;
+  }
+
+  &__heading--mobile {
+    @extend .inventory-card__heading;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__edit-delete {
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+      justify-content: start;
+    }
+  }
+
+  &__status {
+    display: inline-block;
+    height: 1.5rem; // Mobile height
+    padding: 0 8px;
+    line-height: 1.5rem; // Align text vertically
+    border-radius: 20px;
+    @include mediumText;
+
+    // Desktop & tablet styles
+    @media (min-width: 768px) {
+      height: 26px;
+      line-height: 26px;
+    }
+  }
+
+  &__status--in-stock {
+    background-color: rgba(21, 132, 99, 0.07); // Green with 7% opacity
+    color: $color-green;
+  }
+
+  &__status--out-of-stock {
+    background-color: rgba(201, 69, 21, 0.07); // Red with 7% opacity
+    color: $color-red;
+  }
+
+  &__layout {
+    display: flex;
+
+    @include tablet {
+      flex-direction: row; // Only for the overall layout, not individual items
+    }
+  }
+
+  &__layout--left {
+    flex: 4;
+  }
+
+  &__layout--right {
+    flex: 3;
+  }
+
+  &__divider {
+    color: $color-cloud;
+    width: 395px;
+    margin-left: -30px;
+
+    @include tablet {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

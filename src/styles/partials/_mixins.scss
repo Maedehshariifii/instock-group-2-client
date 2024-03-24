@@ -30,3 +30,20 @@
 @mixin setCallToActionStyleTablet {
   height: 2.375rem; // 38px
 }
+
+@mixin tableHeader {
+  font-weight: 600;
+  font-size: 12px;
+  color: $color-slate;
+}
+
+@mixin pageHeading {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+@mixin mediumText {
+  font-size: 0.82rem;
+  line-height: 22px;
+}
