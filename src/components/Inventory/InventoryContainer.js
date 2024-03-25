@@ -13,7 +13,6 @@ const InventoryContainer = () => {
     const fetchInventory = async () => {
       try {
         const resp = await axios.get("http://localhost:8080/api/inventories");
-        console.log(resp.data);
         setInventoryData(resp.data);
       } catch (error) {
         console.error("Error fetching inventory data:", error);
