@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inv-card-txt-item {
+  width: 38vw;
+
+  @include tablet {
+    width: unset;
+
+    &__heading {
+      display: none;
+    }
+
+    &__content {
+      display: flex;
+      &--in-stock {
+        background-color: rgba(21, 132, 99, 0.07); // Green with 7% opacity
+        @include setInventoryStatusStyle($color-green);
+      }
+      &--out-of-stock {
+        background-color: rgba(201, 69, 21, 0.07); // Red with 7% opacity
+        @include setInventoryStatusStyle($color-red);
+      }
+    }
+  }
+}

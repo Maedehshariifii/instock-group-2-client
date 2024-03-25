@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.search-add {
+  .search-container {
+    position: relative;
+    &__input {
+      width: 85%;
+      padding: 9px;
+      padding-right: 2rem;
+      font-size: 16px;
+      border: 1px solid $color-cloud;
+      border-radius: 20px;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+    }
+  }
+
+  &__add-button {
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 20px;
+    margin-top: 15px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    background-color: $color-instock-indigo;
+    color: $color-white;
+  }
+
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    .search-container {
+      margin-right: 3rem;
+      width: 100%;
+      max-width: 16rem;
+    }
+
+    &__add-button {
+      width: 50%;
+      height: 38px;
+      max-width: 10rem;
+    }
+  }
+
+  @include desktop {
+  }
+}

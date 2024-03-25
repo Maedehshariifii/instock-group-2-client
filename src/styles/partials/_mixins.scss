@@ -13,14 +13,16 @@
 }
 
 @mixin setCallToActionStyleMobile {
+  width: 100%;
+  padding: 0 1rem;
+  border-radius: 20px;
+  height: 2.25rem; //36px
+  border: none;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  height: 2.25rem; //36px
-  padding-left: 1rem;
-  padding-right: 1rem;
   &:hover {
     text-decoration: underline;
     text-decoration-color: $color-white;
@@ -37,13 +39,19 @@
   color: $color-slate;
 }
 
-@mixin pageHeading {
-  font-size: 28px;
+@mixin setPageHeadingStyle {
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 36px;
+  line-height: 2.5rem;
 }
 
 @mixin mediumText {
   font-size: 0.82rem;
   line-height: 22px;
+}
+
+@mixin setInventoryStatusStyle($color) {
+  color: $color;
+  border-radius: 20px;
+  padding: 0 1rem;
 }

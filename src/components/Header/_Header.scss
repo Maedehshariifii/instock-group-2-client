@@ -3,7 +3,7 @@
 
 .header {
   background-color: $color-graphite;
-  height: 200px; // Set the default mobile height to 200px
+  height: 12.5rem; // Set the default mobile height to 200px
 
   .header-content {
     .header-logo {
@@ -46,7 +46,7 @@
     .header-content {
       display: flex;
       justify-content: space-between;
-      padding: 0 3rem 8rem 3rem;
+      padding: 2rem 2rem 8rem 2rem;
       .navigation-ctn {
         &__nav-item {
           @include setCallToActionStyleTablet;

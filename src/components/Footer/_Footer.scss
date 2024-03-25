@@ -1,8 +1,12 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .footer {
   display: flex;
   justify-content: space-around;
   color: $color-slate;
-  margin-top: -70px;
+
+  @include tablet {
+    margin-bottom: 2rem;
+  }
 }

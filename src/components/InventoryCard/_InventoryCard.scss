@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inv-card {
+  padding-bottom: 1rem;
+  .inv-card-text-ctn {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .inv-card-icon-ctn {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    .inv-card-text-ctn {
+      width: 90%;
+      font-size: 0.875rem;
+      justify-content: space-between;
+      &__item-heading {
+        display: none;
+      }
+
+      // item name
+      .inv-card-txt-item:nth-child(1) {
+        width: 17vw;
+      }
+
+      // item category
+      .inv-card-txt-item:nth-child(2) {
+        width: 14vw;
+      }
+
+      // item status
+      .inv-card-txt-item:nth-child(3) {
+        width: 12vw;
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+      }
+
+      // item qty
+      .inv-card-txt-item:nth-child(4) {
+        width: 10vw;
+      }
+
+      // warehouse
+      .inv-card-txt-item:nth-child(6) {
+        width: 16vw;
+      }
+
+      .empty {
+        display: none;
+      }
+    }
+
+    .inv-card-icon-ctn {
+      display: flex;
+      img {
+        padding-left: 1rem;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import InventoryContainer from "../../components/Inventory/InventoryContainer";
+import InventoryContainer from "../../components/InventoryContainer/InventoryContainer";
 
 function Inventory() {
   return (
