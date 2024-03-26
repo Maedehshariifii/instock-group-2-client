@@ -65,18 +65,23 @@ const InventoryDetails = () => {
             <p className="inventory-card__item-details">
               {inventoryDetails.category}
             </p>
-            <h4 className="inventory-card__heading--mobile">STATUS</h4>
-            <p
-              className={`inventory-card__status inventory-card__status--${statusClass}`}
-            >
-              {inventoryDetails.status.toUpperCase()}
-            </p>
-
-            <h4 className="inventory-card__heading--mobile">QTY</h4>
-            <p className="inventory-card__item-details">
-              {inventoryDetails.quantity}
-            </p>
-            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
+            <div className="inventory-details__mobile">
+              <div>
+                <h4 className="inventory-card__heading--mobile">STATUS:</h4>
+                <p
+                  className={`inventory-card__status inventory-card__status--${statusClass}`}
+                >
+                  {inventoryDetails.status.toUpperCase()}
+                </p>
+              </div>
+              <div className="inventory-details__quantity">
+                <h4 className="inventory-card__heading--mobile">QUANTITY:</h4>
+                <p className="inventory-card__item-details">
+                  {inventoryDetails.quantity}
+                </p>
+              </div>
+            </div>
+            <h4 className="inventory-card__heading--mobile">WAREHOUSE:</h4>
             <p className="inventory-card__item-details">
               {inventoryDetails.warehouse_name}
             </p>
