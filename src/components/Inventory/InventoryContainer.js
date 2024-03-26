@@ -2,7 +2,7 @@ import InventoryCard from "./InventoryCard";
 import SortIcon from "../../assets/icons/sort-24px.svg";
 import "./InventoryContainer.scss";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const InventoryContainer = () => {
@@ -13,7 +13,6 @@ const InventoryContainer = () => {
     const fetchInventory = async () => {
       try {
         const resp = await axios.get("http://localhost:8080/api/inventories");
-        console.log(resp.data);
         setInventoryData(resp.data);
       } catch (error) {
         console.error("Error fetching inventory data:", error);
