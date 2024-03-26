@@ -23,6 +23,11 @@
     height: 20px;
   }
 
+  &__icon--details {
+    @extend .inventory-card__icon;
+    filter: brightness(0) invert(1);
+  }
+
   &__item {
     @include mediumText;
     color: $color-instock-indigo;

@@ -9,9 +9,6 @@
   position: relative;
   top: -70px;
   border-radius: 10px;
-  padding-top: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
   padding: 10px 30px 0 30px;
   @include tablet {
     width: 690px;
@@ -42,6 +39,8 @@
   }
 
   &__heading {
+    @include pageHeading;
+
     @include tablet {
       padding: 0 2rem;
     }

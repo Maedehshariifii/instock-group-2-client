@@ -7,4 +7,15 @@
   height: 36px;
   border-radius: 20px;
   border: none;
+  background-color: $color-instock-indigo;
+}
+
+.inventory-details__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inventory-details__card {
+  padding: 10px 0;
 }
