@@ -25,6 +25,10 @@
       margin-right: 30px;
     }
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .inventory-details__card-header {

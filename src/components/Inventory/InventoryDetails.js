@@ -50,14 +50,24 @@ const InventoryDetails = () => {
               />
               {inventoryDetails.item_name}
             </h1>
-            <button className="edit-cta">
+            <button
+              className="edit-cta"
+              onClick={() => {
+                navigate(`/inventory/edit`);
+              }}
+            >
               <img
                 src={EditIcon}
                 alt="Edit Icon"
                 className="inventory-card__icon--details"
               />
             </button>
-            <button className="edit-cta--tablet">
+            <button
+              className="edit-cta--tablet"
+              onClick={() => {
+                navigate(`/inventory/edit`);
+              }}
+            >
               <img
                 src={EditIcon}
                 alt="Edit Icon"
