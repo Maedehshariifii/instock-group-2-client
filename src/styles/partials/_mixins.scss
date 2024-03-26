@@ -12,6 +12,12 @@
   }
 }
 
+@mixin mobile {
+  @media screen and (max-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
 @mixin setCallToActionStyleMobile {
   display: flex;
   flex-direction: column;

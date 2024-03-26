@@ -1,12 +1,12 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import WarehouseContainer from "../../components/Warehouse/WarehouseContainer";
+import WarehouseDetailsContainer from "../../components/Warehouse/WarehouseDetailsContainer";
 
 function WarehouseDetails() {
   return (
     <div>
       <Header activeNavItem="warehouses" />
-      Details
+      <WarehouseDetailsContainer />
       <Footer />
     </div>
   );
