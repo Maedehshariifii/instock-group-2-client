@@ -4,7 +4,6 @@ import RightChevron from "../../assets/icons/chevron_right-24px.svg";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const InventoryCard = ({ item }) => {

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
@@ -11,6 +12,7 @@ const InventoryDetails = () => {
   const { id } = useParams();
   const [inventoryDetails, setInventoryDetails] = useState({});
   const [detailsLoaded, setDetailsLoaded] = useState(false);
+  const navigate = useNavigate();
 
   const statusClass = inventoryDetails.status
     ? inventoryDetails.status.split(" ").join("-").toLowerCase()
@@ -42,6 +44,9 @@ const InventoryDetails = () => {
                 src={BackIcon}
                 alt="Back Icon"
                 className="inventory-card__icon"
+                onClick={() => {
+                  navigate(`/inventory`);
+                }}
               />
               {inventoryDetails.item_name}
             </h1>

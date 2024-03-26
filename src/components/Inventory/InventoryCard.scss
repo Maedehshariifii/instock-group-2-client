@@ -21,6 +21,10 @@
   &__icon {
     vertical-align: middle; /* Align icon with text */
     height: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__icon--details {
