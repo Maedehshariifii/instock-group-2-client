@@ -1,5 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+@use "./InventoryCard.scss" as *;
 
 .edit-cta {
   //   background-color: $color-instock-indigo;
@@ -32,8 +33,34 @@
   justify-content: space-between;
 }
 
+.inventory-details__card-heading {
+  @extend .inventory-card__heading;
+  display: block;
+}
+
 .inventory-details__card {
   padding: 10px 0;
+
+  @include tablet {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--left {
+    @include tablet {
+      flex: 2;
+      padding-right: 30px;
+    }
+  }
+
+  &--right {
+    @include tablet {
+      flex: 2;
+      padding-left: 30px;
+      border-left: 1px solid $color-cloud;
+    }
+  }
 }
 
 .inventory-details__mobile {

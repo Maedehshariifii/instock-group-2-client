@@ -63,36 +63,40 @@ const InventoryDetails = () => {
           </div>
           <hr className="inventory-card__divider"></hr>
           <div className="inventory-details__card">
-            <h4 className="inventory-card__heading--mobile">
-              ITEM DESCRIPTION:
-            </h4>
-            <p className="inventory-card__item-details">
-              {inventoryDetails.description}
-            </p>
-            <h4 className="inventory-card__heading--mobile">CATEGORY:</h4>
-            <p className="inventory-card__item-details">
-              {inventoryDetails.category}
-            </p>
-            <div className="inventory-details__mobile">
-              <div>
-                <h4 className="inventory-card__heading--mobile">STATUS:</h4>
-                <p
-                  className={`inventory-card__status inventory-card__status--${statusClass}`}
-                >
-                  {inventoryDetails.status.toUpperCase()}
-                </p>
-              </div>
-              <div className="inventory-details__quantity">
-                <h4 className="inventory-card__heading--mobile">QUANTITY:</h4>
-                <p className="inventory-card__item-details">
-                  {inventoryDetails.quantity}
-                </p>
-              </div>
+            <div className="inventory-details__card--left">
+              <h4 className="inventory-details__card-heading">
+                ITEM DESCRIPTION:
+              </h4>
+              <p className="inventory-card__item-details">
+                {inventoryDetails.description}
+              </p>
+              <h4 className="inventory-details__card-heading">CATEGORY:</h4>
+              <p className="inventory-card__item-details">
+                {inventoryDetails.category}
+              </p>
             </div>
-            <h4 className="inventory-card__heading--mobile">WAREHOUSE:</h4>
-            <p className="inventory-card__item-details">
-              {inventoryDetails.warehouse_name}
-            </p>
+            <div className="inventory-details__card--right">
+              <div className="inventory-details__mobile">
+                <div>
+                  <h4 className="inventory-details__card-heading">STATUS:</h4>
+                  <p
+                    className={`inventory-card__status inventory-card__status--${statusClass}`}
+                  >
+                    {inventoryDetails.status.toUpperCase()}
+                  </p>
+                </div>
+                <div className="inventory-details__quantity">
+                  <h4 className="inventory-details__card-heading">QUANTITY:</h4>
+                  <p className="inventory-card__item-details">
+                    {inventoryDetails.quantity}
+                  </p>
+                </div>
+              </div>
+              <h4 className="inventory-details__card-heading">WAREHOUSE:</h4>
+              <p className="inventory-card__item-details">
+                {inventoryDetails.warehouse_name}
+              </p>
+            </div>
           </div>
         </div>
       ) : (
