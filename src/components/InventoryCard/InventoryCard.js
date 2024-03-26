@@ -2,9 +2,9 @@ import "./_InventoryCard.scss";
 import RightChevron from "../../assets/icons/chevron_right-24px.svg";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
-import InventoryItem from "../InventoryItem/InventoryItem";
+import TableDataField from "../TableDataField/TableDataField";
 
-const InventoryCard = ({ item }) => {
+const InventoryCard = ({ item, isInWarehouseList }) => {
   const stockStatus = item.status === "In Stock" ? 'in-stock' : 'out-of-stock';
   return (
     <>
@@ -23,14 +23,14 @@ const InventoryCard = ({ item }) => {
               />
             </p>
           </div>
-          <InventoryItem txtContent={item.category} heading='category' />
-          <InventoryItem txtContent={item.status.toUpperCase()} heading='status' stockStatus={stockStatus} />
-          <InventoryItem txtContent={item.quantity} heading='qty' />
+          <TableDataField txtContent={item.category} heading='category' />
+          <TableDataField txtContent={item.status?.toUpperCase()} heading='status' stockStatus={stockStatus} />
+          <TableDataField txtContent={item.quantity} heading='qty' />
 
           {/* empty div for content organizing purpose */}
           <div className="inv-card-txt-item empty"></div>
 
-          <InventoryItem txtContent={item.warehouse_name} heading='warehouse' />
+          <TableDataField txtContent={item.warehouse_name} heading='warehouse' display={isInWarehouseList} />
 
         </div>
         <div className="inv-card-icon-ctn">

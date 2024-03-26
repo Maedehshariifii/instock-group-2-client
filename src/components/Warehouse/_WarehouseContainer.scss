@@ -1,23 +1,26 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.inventory-list {
+.warehouse-list {
   @include setPageBodyFrameAndPosition;
-
+  .table-row {
+    .empty {
+      display: none;
+    }
+  }
   @include tablet {
     margin: 0 2rem;
-
     .table-row {
-      @include setTableDataFields(17vw, 14vw, 12vw, 10vw, 16vw, 0.75rem);
+      @include setTableDataFields(14vw, 15vw, 18vw, 20vw, 0.75rem);
     }
-    .inventory-list-header-ctn {
+    .warehouse-list-header-ctn {
       display: flex;
       justify-content: space-between;
       &__heading {
         @include setPageHeadingStyle;
       }
     }
-    .inventory-list-table-heading {
+    .warehouse-list-table-heading {
       display: flex;
       justify-content: space-between;
       background-color: $color-light-grey;

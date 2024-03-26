@@ -1,10 +1,9 @@
-import InventoryCard from "../InventoryCard/InventoryCard";
 import "./_InventoryContainer.scss";
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchAdd from "../SearchAdd/SearchAdd";
 import TableHeadingItem from "../TableHeadingItem/TableHeadingItem";
+import TableRow from "../TableRow/TableRow";
 
 const InventoryContainer = () => {
   const [inventoryData, setInventoryData] = useState([]);
@@ -14,7 +13,6 @@ const InventoryContainer = () => {
     const fetchInventory = async () => {
       try {
         const resp = await axios.get("http://localhost:8080/api/inventories");
-        console.log(resp.data);
         setInventoryData(resp.data);
       } catch (error) {
         console.error("Error fetching inventory data:", error);
@@ -41,7 +39,20 @@ const InventoryContainer = () => {
 
         {/* mapping the inventory list */}
         {inventoryData.map((item) => {
-          return <InventoryCard key={item.id} item={item} />;
+          return <TableRow
+            key={item.id}
+            field1Heading='inventory item'
+            field1Content={item.item_name}
+            field2Heading='category'
+            field2Content={item.category}
+            field3Heading='status'
+            field3Content={item.status}
+            field4Heading='qty'
+            field4Content={item.quantity}
+            field5Heading='warehouse'
+            field5Content={item.warehouse_name}
+            statusProp={item.status}
+          />;
         })}
       </section>
     </>
