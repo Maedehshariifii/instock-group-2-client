@@ -26,6 +26,10 @@
   &__icon--details {
     @extend .inventory-card__icon;
     filter: brightness(0) invert(1);
+
+    @include tablet {
+      padding-right: 5px;
+    }
   }
 
   &__item {

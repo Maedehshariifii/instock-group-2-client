@@ -52,6 +52,14 @@ const InventoryDetails = () => {
                 className="inventory-card__icon--details"
               />
             </button>
+            <button className="edit-cta--tablet">
+              <img
+                src={EditIcon}
+                alt="Edit Icon"
+                className="inventory-card__icon--details"
+              />
+              Edit
+            </button>
           </div>
           <hr className="inventory-card__divider"></hr>
           <div className="inventory-details__card">

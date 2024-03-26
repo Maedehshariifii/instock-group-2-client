@@ -8,6 +8,22 @@
   border-radius: 20px;
   border: none;
   background-color: $color-instock-indigo;
+
+  @include tablet {
+    display: none;
+  }
+
+  &--tablet {
+    @extend .edit-cta;
+    display: none;
+
+    @include tablet {
+      display: block;
+      color: $color-white;
+      width: 81px;
+      margin-right: 30px;
+    }
+  }
 }
 
 .inventory-details__card-header {
