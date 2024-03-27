@@ -4,14 +4,8 @@ import "./_TableHeadingItem.scss";
 export default function TableHeadingItem({ headingTxt }) {
     return (
         <div className="heading-item">
-            <h4>
-                {headingTxt.toUpperCase()}
-            </h4>
-            <img
-                src={SortIcon}
-                alt="Sort Icon"
-
-            />
+            <h4>{headingTxt.toUpperCase()}</h4>
+            <img src={SortIcon} alt="Sort Icon" />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.inv-card-txt-item {
+.data-field {
   width: 38vw;
 
   @include tablet {

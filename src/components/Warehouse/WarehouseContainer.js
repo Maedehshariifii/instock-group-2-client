@@ -1,12 +1,13 @@
-import SortIcon from "../../assets/icons/sort-24px.svg";
-import "./WarehouseContainer.scss";
+import SearchAdd from "../SearchAdd/SearchAdd";
+import TableHeadingItem from "../TableHeadingItem/TableHeadingItem";
+import "./_WarehouseContainer.scss";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import WarehouseCard from "./WarehouseCard";
+import TableRow from "../TableRow/TableRow";
 
 const WarehouseContainer = () => {
-  const [WarehouseData, setWarehouseData] = useState([]);
+  const [warehouseData, setWarehouseData] = useState([]);
 
   // This useEffect fetches the Warehouse data when the component mounts
   useEffect(() => {
@@ -20,60 +21,35 @@ const WarehouseContainer = () => {
     };
     fetchWarehouse();
   }, []);
-
   return (
     <>
-      <section className="card-container">
-        <h1 className="card-container__heading">Warehouse</h1>
-        <div className="card-container__cta">
-          <div className="search">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search__input"
-            />
-            <button className="search__button"></button>
-          </div>
-          <button className="form-cta">+ Add New Item</button>
+      <section className="warehouse-list">
+        <div className="warehouse-list-header-ctn">
+          <h1 className="warehouse-list-header-ctn__heading">Warehouse</h1>
+          <SearchAdd addButtonContent='+ Add New Item' />
         </div>
-        <div className="card-container__table-heading">
-          <h4 className="warehouse-card__heading">
-            WAREHOUSE
-            <img
-              src={SortIcon}
-              alt="Sort Icon"
-              className="warehouse-card__icon"
-            />
-          </h4>
-          <h4 className="warehouse-card__heading">
-            ADDRESS
-            <img
-              src={SortIcon}
-              alt="Sort Icon"
-              className="warehouse-card__icon"
-            />
-          </h4>
-          <h4 className="warehouse-card__heading">
-            CONTACT NAME
-            <img
-              src={SortIcon}
-              alt="Sort Icon"
-              className="warehouse-card__icon"
-            />
-          </h4>
-          <h4 className="warehouse-card__heading">
-            CONTACT INFORMATION
-            <img
-              src={SortIcon}
-              alt="Sort Icon"
-              className="warehouse-card__icon"
-            />
-          </h4>
-          <h4 className="warehouse-card__heading">ACTIONS </h4>
+        <div className="warehouse-list-table-heading">
+          <TableHeadingItem headingTxt='warehouse' />
+          <TableHeadingItem headingTxt='address' />
+          <TableHeadingItem headingTxt='contact name' />
+          <TableHeadingItem headingTxt='contact information' />
+          <TableHeadingItem headingTxt='actions' />
         </div>
 
-        {WarehouseData.map((item) => {
-          return <WarehouseCard key={item.id} item={item} />;
+        {warehouseData.map((warehouse) => {
+          return (
+            <TableRow
+              key={warehouse.id}
+              field1Heading='warehouse'
+              field1Content={warehouse.warehouse_name}
+              field2Heading='address'
+              field2Content={`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}
+              field3Heading='contact name'
+              field3Content={warehouse.contact_name}
+              field4Heading='contact information'
+              field4Content={`${warehouse.contact_phone} ${warehouse.contact_email}`}
+            />
+          );
         })}
       </section>
     </>
