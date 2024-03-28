@@ -8,14 +8,14 @@
   background: $color-white;
   position: relative;
   top: -70px;
-  border-radius: 10px;
-  padding-top: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
+  border-radius: 5px;
   padding: 10px 30px 0 30px;
   @include tablet {
     width: 690px;
     padding: 10px 0 0 0;
+  }
+  @include desktop {
+    width: 1000px;
   }
 
   &__cta {
@@ -42,6 +42,8 @@
   }
 
   &__heading {
+    @include pageHeading;
+
     @include tablet {
       padding: 0 2rem;
     }

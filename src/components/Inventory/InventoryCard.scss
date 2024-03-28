@@ -21,11 +21,28 @@
   &__icon {
     vertical-align: middle; /* Align icon with text */
     height: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon--details {
+    @extend .inventory-card__icon;
+    filter: brightness(0) invert(1);
+
+    @include tablet {
+      padding-right: 5px;
+    }
   }
 
   &__item {
     @include mediumText;
     color: $color-instock-indigo;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__item-details {
     @include mediumText;
@@ -59,6 +76,7 @@
     line-height: 1.5rem; // Align text vertically
     border-radius: 20px;
     @include mediumText;
+    font-size: 0.72rem;
 
     // Desktop & tablet styles
     @media (min-width: 768px) {
