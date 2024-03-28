@@ -14,7 +14,7 @@ function App() {
         <Route path="/warehouses" element={<Warehouses />} />
         <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         {/* Route for inventory page */}
-        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory/*" element={<Inventory />} />
         {/* Route for unmatched path */}
         <Route path="/*" element={<UnmatchedRoutes />} />
       </Routes>
