@@ -5,6 +5,7 @@ import axios from "axios";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import InventoryList from "../../components/Inventory/InventoryList";
 
 const WarehouseDetailsContainer = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const WarehouseDetailsContainer = () => {
             </div>
           </div>
         </div>
-        {/* Use this for warehouse inventories */}
+        <InventoryList />
         {/* {WarehouseData.map((item) => {
           return <WarehouseCard key={item.id} item={item} />;
         })} */}
