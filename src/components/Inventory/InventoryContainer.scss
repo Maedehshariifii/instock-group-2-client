@@ -43,6 +43,7 @@
 
   &__heading {
     @include pageHeading;
+    color: $color-instock-black;
 
     @include tablet {
       padding: 0 2rem;

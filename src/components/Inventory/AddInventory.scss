@@ -1,0 +1,30 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../components/Inventory/InventoryContainer.scss" as *;
+@use "../../components/Inventory/InventoryDetails.scss" as *;
+
+.form-heading {
+  @extend .card-container__heading;
+  font-size: 20px;
+  color: $color-instock-black;
+}
+
+.form-label {
+  @extend .inventory-details__card-heading;
+  color: $color-instock-black;
+  padding-bottom: 4px;
+}
+
+.form-input {
+  height: 38px;
+  border-radius: 20px;
+  text-indent: 10px;
+  border: 1px solid $color-cloud;
+  width: 100%;
+  margin-bottom: 15px;
+
+  &--description {
+    @extend .form-input;
+    height: 120px;
+  }
+}
