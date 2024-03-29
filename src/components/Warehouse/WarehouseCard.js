@@ -8,7 +8,7 @@ const WarehouseCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleWarehouseClick = (id) => {
-    navigate(`/warehouses/${id}`);
+    navigate(`/warehouses/${id}/inventories`);
   };
 
   return (
