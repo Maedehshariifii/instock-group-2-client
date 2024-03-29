@@ -1,10 +1,6 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import editIcon from "../../assets/icons/edit-24px.svg";
-import InventoryList from "../../components/Inventory/InventoryList";
+import WarehouseDetailsContainer from "../../components/Warehouse/WarehouseDetailsContainer";
 
 function WarehouseDetails() {
   const [selectedWarehouseData, setSelectedWarehouseData] = useState([]);
@@ -28,8 +24,7 @@ function WarehouseDetails() {
   return (
     <>
       <Header activeNavItem="warehouses" />
-      Warehouse Details here...
-      <InventoryList />
+      <WarehouseDetailsContainer />
       <Footer />
     </>
   );

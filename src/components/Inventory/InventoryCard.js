@@ -1,11 +1,16 @@
 import "./InventoryCard.scss";
+
 import RightChevron from "../../assets/icons/chevron_right-24px.svg";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 
+import { useNavigate } from "react-router-dom";
+
 const InventoryCard = ({ item }) => {
   // Manually replace spaces with hyphens and convert to lowercase for class names
   const statusClass = item.status.split(" ").join("-").toLowerCase();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -14,7 +19,12 @@ const InventoryCard = ({ item }) => {
         <div className="inventory-card__layout">
           <div className="inventory-card__layout--left">
             <h4 className="inventory-card__heading--mobile">INVENTORY ITEM</h4>
-            <p className="inventory-card__item">
+            <p
+              className="inventory-card__item"
+              onClick={() => {
+                navigate(`/inventory/${item.id}`);
+              }}
+            >
               {item.item_name}
               <img
                 src={RightChevron}
@@ -22,6 +32,7 @@ const InventoryCard = ({ item }) => {
                 className="inventory-card__icon"
               />
             </p>
+
             <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
             <p className="inventory-card__item-details">{item.category}</p>
           </div>
@@ -48,11 +59,17 @@ const InventoryCard = ({ item }) => {
       </div>
 
       {/* Inventory details rendering for desktop and tablet. 
-      The details rendered remain the same as mobile, 
+      The details rendered below remain the same as mobile, 
       but it's much easier to style and re-style */}
       <div className="inventory-card--tablet">
         <h4 className="inventory-card__heading--mobile">INVENTORY ITEM</h4>
-        <p className="inventory-card__item">
+
+        <p
+          className="inventory-card__item"
+          onClick={() => {
+            navigate(`/inventory/${item.id}`);
+          }}
+        >
           {item.item_name}
           <img
             src={RightChevron}
@@ -60,6 +77,7 @@ const InventoryCard = ({ item }) => {
             className="inventory-card__icon"
           />
         </p>
+
         <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
         <p className="inventory-card__item-details">{item.category}</p>
         <h4 className="inventory-card__heading--mobile">STATUS</h4>

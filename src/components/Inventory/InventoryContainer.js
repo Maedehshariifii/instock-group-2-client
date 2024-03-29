@@ -2,7 +2,7 @@ import InventoryCard from "./InventoryCard";
 import SortIcon from "../../assets/icons/sort-24px.svg";
 import "./InventoryContainer.scss";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const InventoryContainer = () => {
