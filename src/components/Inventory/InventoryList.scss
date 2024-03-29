@@ -4,3 +4,9 @@
 .warehouse-inv-list {
   padding-bottom: 100px;
 }
+
+.inventory-card__heading__warehouse-label,
+.inventory-card__hide-warehouse-label,
+.inventory-card__hide-warehouse-val {
+  display: none;
+}

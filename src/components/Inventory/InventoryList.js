@@ -60,7 +60,7 @@ const InventoryList = () => {
               className="inventory-card__icon"
             />
           </h4>
-          <h4 className="inventory-card__heading">
+          <h4 className="inventory-card__heading__warehouse-label">
             WAREHOUSE
             <img
               src={SortIcon}
