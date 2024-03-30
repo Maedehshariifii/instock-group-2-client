@@ -35,3 +35,25 @@
     padding: 1rem 0 0 0;
   }
 }
+
+.status--right {
+  margin-left: 70px;
+}
+
+.cta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-cta--cancel {
+  @extend .form-cta;
+  width: 139px;
+  background-color: $color-white;
+  color: $color-instock-black;
+  border: 1px solid $color-cloud;
+}
+
+.form-cta--add {
+  @extend .form-cta;
+  width: 139px;
+}
