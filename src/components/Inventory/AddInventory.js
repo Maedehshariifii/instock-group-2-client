@@ -8,16 +8,17 @@ const AddInventory = () => {
   const navigate = useNavigate();
 
   const initialState = {
-    itemName: "",
+    item_name: "",
     description: "",
     category: "",
     status: "In stock", // default status
     quantity: "",
-    warehouse: "",
+    warehouse_name: "",
   };
 
   // State to keep track of form data
   const [formData, setFormData] = useState(initialState);
+  console.log(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,15 +41,15 @@ const AddInventory = () => {
         </h2>
         <hr className="inventory-card__divider"></hr>
 
-        <from>
+        <form>
           <h2 className="form-heading">Item Details</h2>
 
           {/* name Input */}
           <label className="form-label">Item Name</label>
           <input
             type="text"
-            name="itemName"
-            value={formData.itemName}
+            name="item_name"
+            value={formData.item_name}
             onChange={handleChange}
             placeholder="Item Name"
             className="form-input"
@@ -72,7 +73,6 @@ const AddInventory = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            defaultValue="" // Makes "Please select" the default value
             className="form-input"
           >
             <option value="" disabled>
@@ -90,11 +90,18 @@ const AddInventory = () => {
           {/* status selection */}
           <label className="form-label">Status</label>
           <div>
-            <input type="radio" value="In Stock" name="status" /> In stock
+            <input
+              type="radio"
+              value="In Stock"
+              name="status"
+              onChange={handleChange}
+            />
+            In stock
             <input
               type="radio"
               value="Out of Stock"
               name="status"
+              onChange={handleChange}
               className="status--right"
             />
             Out of Stock
@@ -115,10 +122,9 @@ const AddInventory = () => {
           {/* Warehouse selection */}
           <label className="form-label">Warehouse</label>
           <select
-            name="warehouse"
-            value={formData.warehouse}
+            name="warehouse_name"
+            value={formData.warehouse_name}
             onChange={handleChange}
-            defaultValue=""
             className="form-input"
           >
             <option value="" disabled>
@@ -131,7 +137,7 @@ const AddInventory = () => {
             <option value="warehouse5">warehouse</option>
           </select>
           <br></br>
-        </from>
+        </form>
         <div className="cta">
           <button className="form-cta--cancel">Cancel</button>
           <button className="form-cta--add">+ Add Item</button>
