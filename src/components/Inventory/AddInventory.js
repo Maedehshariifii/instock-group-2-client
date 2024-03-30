@@ -27,6 +27,9 @@ const AddInventory = () => {
   // State to track valid form submissions
   const [validSubmissionCount, setValidSubmissionCount] = useState(0);
 
+  // State to track the submission ready version of the form data
+  const [submissionData, setSubmissionData] = useState(null);
+
   // Function to handle change in form data
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,7 +53,7 @@ const AddInventory = () => {
     });
 
     // Custom validation to check if quantity is a number
-    if (!inputValues.quantity) {
+    if (inputValues.quantity === undefined || inputValues.quantity === "") {
       errors.quantity = "Quantity missing";
     } else if (
       isNaN(Number(inputValues.quantity)) ||
@@ -58,39 +61,44 @@ const AddInventory = () => {
     ) {
       errors.quantity = "Quantity must be a positive number";
     }
-    console.log(errors);
     return errors;
   };
 
   //Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validateForm(formData);
+
+    // Adjust formData for Out of Stock items before validation and submission
+    const adjustedFormData = {
+      ...formData,
+      quantity: formData.status === "Out of Stock" ? "0" : formData.quantity,
+    };
+
+    const validationErrors = validateForm(adjustedFormData);
     setErrors(validationErrors);
     // If there are no errors, set shouldSubmit to true
     if (Object.keys(validationErrors).length === 0) {
-      // Form is valid, so we update the counter to trigger the useEffect
-      setValidSubmissionCount((count) => count + 1);
+      setSubmissionData(adjustedFormData); // Set adjusted data for submission
+      setValidSubmissionCount((count) => count + 1); // Trigger the useEffect
     }
   };
 
   // This useEffect should run if no validation errors are found in the form inputs
   useEffect(() => {
     const addNewInventoryItem = async () => {
-      if (validSubmissionCount > 0) {
+      if (submissionData && validSubmissionCount > 0) {
         try {
           const resp = await axios.post(
             "http://localhost:8080/api/inventories",
-            formData
+            submissionData
           );
-          console.log("Form submitted successfully:", resp.data);
         } catch (err) {
           console.error("Failed to submit form:", err);
         }
       }
     };
     addNewInventoryItem();
-  }, [validSubmissionCount, formData]);
+  }, [submissionData, validSubmissionCount]);
 
   return (
     <>
@@ -192,7 +200,7 @@ const AddInventory = () => {
 
           {/* status selection */}
           <label className="form-label">Status</label>
-          <div>
+          <div className="form-input--status">
             <input
               type="radio"
               value="In Stock"
@@ -211,30 +219,32 @@ const AddInventory = () => {
             />
             Out of Stock
           </div>
-          <br></br>
 
-          {/* Quantity Input */}
-          <label className="form-label">Quantity</label>
-          <input
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            placeholder="0"
-            className={`form-input ${
-              errors.quantity ? "form-input--error" : ""
-            }`}
-          />
-          {errors.quantity ? (
-            <p className="form-error">
-              <img
-                src={ErrorIcon}
-                alt="Error Icon"
-                className="form-error__icon"
+          {/* Conditionally render the Quantity field based on the status */}
+          {formData.status === "In Stock" && (
+            <div>
+              <label className="form-label">Quantity</label>
+              <input
+                name="quantity"
+                value={formData.quantity}
+                onChange={handleChange}
+                placeholder="0"
+                className={`form-input ${
+                  errors.quantity ? "form-input--error" : ""
+                }`}
               />
-              Enter valid quantity
-            </p>
-          ) : null}
-          <br></br>
+              {errors.quantity ? (
+                <p className="form-error">
+                  <img
+                    src={ErrorIcon}
+                    alt="Error Icon"
+                    className="form-error__icon"
+                  />
+                  Enter valid quantity
+                </p>
+              ) : null}
+            </div>
+          )}
 
           {/* Warehouse selection */}
           <label className="form-label">Warehouse</label>
