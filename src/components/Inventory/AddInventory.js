@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddInventory.scss";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import ErrorIcon from "../../assets/icons/error-24px.svg";
@@ -23,12 +24,16 @@ const AddInventory = () => {
   //state to keep track of user errors
   const [errors, setErrors] = useState({});
 
+  // State to track valid form submissions
+  const [validSubmissionCount, setValidSubmissionCount] = useState(0);
+
+  // Function to handle change in form data
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  //Function to Validate user inputs
+  // Function to Validate user inputs
   const validateForm = (inputValues) => {
     const errors = {};
     const validations = {
@@ -53,7 +58,6 @@ const AddInventory = () => {
     ) {
       errors.quantity = "Quantity must be a positive number";
     }
-
     console.log(errors);
     return errors;
   };
@@ -61,9 +65,32 @@ const AddInventory = () => {
   //Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form submitted:", formData);
-    setErrors(validateForm(formData));
+    const validationErrors = validateForm(formData);
+    setErrors(validationErrors);
+    // If there are no errors, set shouldSubmit to true
+    if (Object.keys(validationErrors).length === 0) {
+      // Form is valid, so we update the counter to trigger the useEffect
+      setValidSubmissionCount((count) => count + 1);
+    }
   };
+
+  // This useEffect should run if no validation errors are found in the form inputs
+  useEffect(() => {
+    const addNewInventoryItem = async () => {
+      if (validSubmissionCount > 0) {
+        try {
+          const resp = await axios.post(
+            "http://localhost:8080/api/inventories",
+            formData
+          );
+          console.log("Form submitted successfully:", resp.data);
+        } catch (err) {
+          console.error("Failed to submit form:", err);
+        }
+      }
+    };
+    addNewInventoryItem();
+  }, [validSubmissionCount, formData]);
 
   return (
     <>
@@ -222,11 +249,14 @@ const AddInventory = () => {
             <option value="" disabled>
               Please select
             </option>
-            <option value="warehouse1">warehouse</option>
-            <option value="warehouse2">warehouse</option>
-            <option value="warehouse3">warehouse</option>
-            <option value="warehouse4">warehouse</option>
-            <option value="warehouse5">warehouse</option>
+            <option value="Manhattan">Manhattan</option>
+            <option value="Washington">Washington</option>
+            <option value="Jersey">Jersey</option>
+            <option value="SF">SF</option>
+            <option value="Santa Monica">Santa Monica</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Miami">Miami</option>
+            <option value="Boston">Boston</option>
           </select>
           {errors.warehouse_name ? (
             <p className="form-error">
