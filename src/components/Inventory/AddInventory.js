@@ -36,7 +36,6 @@ const AddInventory = () => {
       description: "Item's description missing",
       category: "Item's category missing",
       status: "Status missing",
-      quantity: "Quantity missing",
       warehouse_name: "Warehouse missing",
     };
     Object.keys(validations).forEach((key) => {
@@ -44,6 +43,17 @@ const AddInventory = () => {
         errors[key] = validations[key];
       }
     });
+
+    // Custom validation to check if quantity is a number
+    if (!inputValues.quantity) {
+      errors.quantity = "Quantity missing";
+    } else if (
+      isNaN(Number(inputValues.quantity)) ||
+      Number(inputValues.quantity) < 0
+    ) {
+      errors.quantity = "Quantity must be a positive number";
+    }
+
     console.log(errors);
     return errors;
   };
@@ -82,7 +92,9 @@ const AddInventory = () => {
             value={formData.item_name}
             onChange={handleChange}
             placeholder="Item Name"
-            className="form-input"
+            className={`form-input ${
+              errors.item_name ? "form-input--error" : ""
+            }`}
           />
           {errors.item_name ? (
             <p className="form-error">
@@ -103,7 +115,9 @@ const AddInventory = () => {
             value={formData.description}
             onChange={handleChange}
             placeholder="Please enter a brief item description..."
-            className="form-input--description"
+            className={`form-input--description ${
+              errors.description ? "form-input--error" : ""
+            }`}
           />
           {errors.description ? (
             <p className="form-error">
@@ -123,7 +137,9 @@ const AddInventory = () => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${
+              errors.category ? "form-input--error" : ""
+            }`}
           >
             <option value="" disabled>
               Please select
@@ -177,7 +193,9 @@ const AddInventory = () => {
             value={formData.quantity}
             onChange={handleChange}
             placeholder="0"
-            className="form-input"
+            className={`form-input ${
+              errors.quantity ? "form-input--error" : ""
+            }`}
           />
           {errors.quantity ? (
             <p className="form-error">
@@ -186,7 +204,7 @@ const AddInventory = () => {
                 alt="Error Icon"
                 className="form-error__icon"
               />
-              This field is required
+              Enter valid quantity
             </p>
           ) : null}
           <br></br>
@@ -197,7 +215,9 @@ const AddInventory = () => {
             name="warehouse_name"
             value={formData.warehouse_name}
             onChange={handleChange}
-            className="form-input"
+            className={`form-input ${
+              errors.warehouse_name ? "form-input--error" : ""
+            }`}
           >
             <option value="" disabled>
               Please select
