@@ -21,7 +21,7 @@
   text-indent: 10px;
   border: 1px solid $color-cloud;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-family: $font-titillium-reg-ttf, sans-serif;
   appearance: none;
 
@@ -56,4 +56,15 @@
 .form-cta--add {
   @extend .form-cta;
   width: 139px;
+}
+
+.form-error {
+  margin: 0;
+  color: $color-red;
+  font-size: 12px;
+
+  &__icon {
+    @extend .inventory-card__icon;
+    height: 15px;
+  }
 }

@@ -3,6 +3,7 @@ import "./AddInventory.scss";
 import { useNavigate } from "react-router-dom";
 
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
+import ErrorIcon from "../../assets/icons/error-24px.svg";
 
 const AddInventory = () => {
   const navigate = useNavigate();
@@ -11,18 +12,47 @@ const AddInventory = () => {
     item_name: "",
     description: "",
     category: "",
-    status: "In stock", // default status
+    status: "In Stock", // default status
     quantity: "",
     warehouse_name: "",
   };
 
   // State to keep track of form data
   const [formData, setFormData] = useState(initialState);
-  console.log(formData);
+
+  //state to keep track of user errors
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  //Function to Validate user inputs
+  const validateForm = (inputValues) => {
+    const errors = {};
+    const validations = {
+      item_name: "Item's name missing",
+      description: "Item's description missing",
+      category: "Item's category missing",
+      status: "Status missing",
+      quantity: "Quantity missing",
+      warehouse_name: "Warehouse missing",
+    };
+    Object.keys(validations).forEach((key) => {
+      if (!inputValues[key]) {
+        errors[key] = validations[key];
+      }
+    });
+    console.log(errors);
+    return errors;
+  };
+
+  //Function to handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("form submitted:", formData);
+    setErrors(validateForm(formData));
   };
 
   return (
@@ -54,6 +84,16 @@ const AddInventory = () => {
             placeholder="Item Name"
             className="form-input"
           />
+          {errors.item_name ? (
+            <p className="form-error">
+              <img
+                src={ErrorIcon}
+                alt="Error Icon"
+                className="form-error__icon"
+              />
+              This field is required
+            </p>
+          ) : null}
           <br></br>
 
           {/* Description Input */}
@@ -65,6 +105,16 @@ const AddInventory = () => {
             placeholder="Please enter a brief item description..."
             className="form-input--description"
           />
+          {errors.description ? (
+            <p className="form-error">
+              <img
+                src={ErrorIcon}
+                alt="Error Icon"
+                className="form-error__icon"
+              />
+              This field is required
+            </p>
+          ) : null}
           <br></br>
 
           {/* Category selection */}
@@ -78,12 +128,22 @@ const AddInventory = () => {
             <option value="" disabled>
               Please select
             </option>
-            <option value="category1">Electronics</option>
-            <option value="category2">Gear</option>
-            <option value="category3">Apparel</option>
-            <option value="category4">Accessories</option>
-            <option value="category5">Health</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Gear">Gear</option>
+            <option value="Apparel">Apparel</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Health">Health</option>
           </select>
+          {errors.category ? (
+            <p className="form-error">
+              <img
+                src={ErrorIcon}
+                alt="Error Icon"
+                className="form-error__icon"
+              />
+              This field is required
+            </p>
+          ) : null}
           <hr className="inventory-card__divider"></hr>
           <h2 className="form-heading">Item Availability</h2>
 
@@ -95,6 +155,7 @@ const AddInventory = () => {
               value="In Stock"
               name="status"
               onChange={handleChange}
+              checked={formData.status === "In Stock"}
             />
             In stock
             <input
@@ -102,6 +163,7 @@ const AddInventory = () => {
               value="Out of Stock"
               name="status"
               onChange={handleChange}
+              checked={formData.status === "Out of Stock"}
               className="status--right"
             />
             Out of Stock
@@ -117,6 +179,16 @@ const AddInventory = () => {
             placeholder="0"
             className="form-input"
           />
+          {errors.quantity ? (
+            <p className="form-error">
+              <img
+                src={ErrorIcon}
+                alt="Error Icon"
+                className="form-error__icon"
+              />
+              This field is required
+            </p>
+          ) : null}
           <br></br>
 
           {/* Warehouse selection */}
@@ -136,11 +208,23 @@ const AddInventory = () => {
             <option value="warehouse4">warehouse</option>
             <option value="warehouse5">warehouse</option>
           </select>
+          {errors.warehouse_name ? (
+            <p className="form-error">
+              <img
+                src={ErrorIcon}
+                alt="Error Icon"
+                className="form-error__icon"
+              />
+              This field is required
+            </p>
+          ) : null}
           <br></br>
         </form>
         <div className="cta">
           <button className="form-cta--cancel">Cancel</button>
-          <button className="form-cta--add">+ Add Item</button>
+          <button className="form-cta--add" onClick={handleSubmit}>
+            + Add Item
+          </button>
         </div>
       </div>
     </>
