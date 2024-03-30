@@ -7,7 +7,7 @@ const AddInventory = () => {
     description: "",
     category: "",
     status: "In stock", // default status
-    quantity: 0,
+    quantity: "",
     warehouse: "",
   };
 
@@ -24,6 +24,7 @@ const AddInventory = () => {
       <div className="card-container">
         <h2 className="card-container__heading">Add New Inventory Item</h2>
         <hr className="inventory-card__divider"></hr>
+
         <from>
           <h2 className="form-heading">Item Details</h2>
           <label className="form-label">Item Name</label>
@@ -38,7 +39,7 @@ const AddInventory = () => {
           <br></br>
 
           <label className="form-label">Description</label>
-          <input
+          <textarea
             name="description"
             value={formData.description}
             onChange={handleChange}
@@ -48,34 +49,48 @@ const AddInventory = () => {
           <br></br>
 
           <label className="form-label">Category</label>
-          <input
+          <select
             name="category"
             value={formData.category}
             onChange={handleChange}
-            placeholder="Please select"
+            defaultValue="" // Makes "Please select" the default value
             className="form-input"
-          />
+          >
+            <option value="" disabled>
+              Please select
+            </option>
+            {/* Add your categories here */}
+            <option value="category1">Electronics</option>
+            <option value="category2">Gear</option>
+            <option value="category3">Apparel</option>
+            <option value="category4">Accessories</option>
+            <option value="category5">Health</option>
+            {/* ... other options ... */}
+          </select>
+
           <hr className="inventory-card__divider"></hr>
 
           <h2 className="form-heading">Item Availability</h2>
-          <label>Status</label>
+          <label className="form-label">Status</label>
           <br></br>
-          <label>Quantity</label>
-          <textarea
+          <label className="form-label">Quantity</label>
+          <input
             name="quantity"
             value={formData.quantity}
             onChange={handleChange}
             placeholder="0"
-          ></textarea>
+            className="form-input"
+          />
           <br></br>
 
-          <label>
+          <label className="form-label">
             Warehouse
-            <textarea
+            <input
               name="warehouse"
               value={formData.warehouse}
               onChange={handleChange}
               placeholder="Please select"
+              className="form-input"
             />
           </label>
           <br></br>

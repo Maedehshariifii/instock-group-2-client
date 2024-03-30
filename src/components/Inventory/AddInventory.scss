@@ -22,9 +22,16 @@
   border: 1px solid $color-cloud;
   width: 100%;
   margin-bottom: 15px;
+  font-family: $font-titillium-reg-ttf, sans-serif;
+  appearance: none;
+
+  &:focus {
+    border: 1px solid $color-instock-indigo;
+  }
 
   &--description {
     @extend .form-input;
     height: 120px;
+    padding: 1rem 0 0 0;
   }
 }
