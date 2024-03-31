@@ -66,6 +66,14 @@
     margin-bottom: 10px;
   }
 
+  &--quantity {
+    @extend .form-input;
+
+    @include desktop {
+      width: 122px;
+    }
+  }
+
   &--error {
     border: 1px solid $color-red;
   }

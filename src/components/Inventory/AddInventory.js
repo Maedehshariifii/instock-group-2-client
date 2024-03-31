@@ -232,7 +232,7 @@ const AddInventory = () => {
                   value={formData.quantity}
                   onChange={handleChange}
                   placeholder="0"
-                  className={`form-input ${
+                  className={`form-input--quantity ${
                     errors.quantity ? "form-input--error" : ""
                   }`}
                 />
