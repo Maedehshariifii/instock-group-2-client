@@ -30,6 +30,9 @@ const AddInventory = () => {
   // State to track the submission ready version of the form data
   const [submissionData, setSubmissionData] = useState(null);
 
+  // State to store fetched warehouses
+  const [warehouses, setWarehouses] = useState([]);
+
   // Function to handle change in form data
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,6 +85,19 @@ const AddInventory = () => {
       setValidSubmissionCount((count) => count + 1); // Trigger the useEffect
     }
   };
+
+  // This useEffect will run once when component mounts to fetch the warehouse data for the dropdown
+  useEffect(() => {
+    const fetchWarehouses = async () => {
+      try {
+        const resp = await axios.get("http://localhost:8080/api/warehouses");
+        setWarehouses(resp.data);
+      } catch (error) {
+        console.error("Failed to fetch warehouses:", error);
+      }
+    };
+    fetchWarehouses();
+  }, []);
 
   // This useEffect should run if no validation errors are found in the form inputs
   useEffect(() => {
@@ -262,14 +278,14 @@ const AddInventory = () => {
               <option value="" disabled>
                 Please select
               </option>
-              <option value="Manhattan">Manhattan</option>
-              <option value="Washington">Washington</option>
-              <option value="Jersey">Jersey</option>
-              <option value="SF">SF</option>
-              <option value="Santa Monica">Santa Monica</option>
-              <option value="Seattle">Seattle</option>
-              <option value="Miami">Miami</option>
-              <option value="Boston">Boston</option>
+              {/* Dynamically render warehosue list from the fetched data*/}
+              {warehouses.map((warehouse) => {
+                return (
+                  <option key={warehouse.id} value={warehouse.warehouse_name}>
+                    {warehouse.warehouse_name}
+                  </option>
+                );
+              })}
             </select>
             {errors.warehouse_name ? (
               <p className="form-error">
