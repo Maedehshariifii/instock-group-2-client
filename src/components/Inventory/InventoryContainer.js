@@ -3,10 +3,12 @@ import SortIcon from "../../assets/icons/sort-24px.svg";
 import "./InventoryContainer.scss";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const InventoryContainer = () => {
   const [inventoryData, setInventoryData] = useState([]);
+  const navigate = useNavigate();
 
   // This useEffect fetches the inventory data when the component mounts
   useEffect(() => {
@@ -34,7 +36,14 @@ const InventoryContainer = () => {
             />
             <button className="search__button"></button>
           </div>
-          <button className="form-cta">+ Add New Item</button>
+          <button
+            className="form-cta"
+            onClick={() => {
+              navigate(`/inventory/add`);
+            }}
+          >
+            + Add New Item
+          </button>
         </div>
         <div className="card-container__table-heading">
           <h4 className="inventory-card__heading">

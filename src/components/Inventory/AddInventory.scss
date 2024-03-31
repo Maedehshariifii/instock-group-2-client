@@ -1,0 +1,134 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../components/Inventory/InventoryContainer.scss" as *;
+@use "../../components/Inventory/InventoryDetails.scss" as *;
+
+.form {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &--left {
+    @include tablet {
+      flex: 1;
+      padding: 0 2rem;
+    }
+  }
+
+  &--right {
+    @include tablet {
+      flex: 1;
+      padding: 0 2rem;
+      border-left: 1px solid $color-cloud;
+    }
+  }
+}
+
+.form-heading {
+  @extend .card-container__heading;
+  font-size: 20px;
+  color: $color-instock-black;
+  @include tablet {
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.form-label {
+  @extend .inventory-details__card-heading;
+  color: $color-instock-black;
+  padding-bottom: 4px;
+}
+
+.form-input {
+  height: 38px;
+  border-radius: 20px;
+  text-indent: 10px;
+  border: 1px solid $color-cloud;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: $font-titillium-reg-ttf, sans-serif;
+  appearance: none;
+
+  &:focus {
+    border: 1px solid $color-instock-indigo;
+  }
+
+  &--description {
+    @extend .form-input;
+    height: 120px;
+    padding: 1rem 0 0 0;
+  }
+
+  &--status {
+    margin-bottom: 10px;
+  }
+
+  &--quantity {
+    @extend .form-input;
+
+    @include desktop {
+      width: 122px;
+    }
+  }
+
+  &--error {
+    border: 1px solid $color-red;
+  }
+}
+
+.status--right {
+  margin-left: 70px;
+}
+
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet {
+    justify-content: flex-end;
+  }
+}
+
+.form-cta--cancel {
+  @extend .form-cta;
+  width: 139px;
+  background-color: $color-white;
+  color: $color-instock-black;
+  border: 1px solid $color-cloud;
+
+  @include tablet {
+    width: 72px;
+  }
+}
+
+.form-cta--add {
+  @extend .form-cta;
+  width: 139px;
+
+  @include tablet {
+    width: 98px;
+    margin: 0 30px 0 15px;
+  }
+}
+
+.form-error {
+  margin: 0;
+  color: $color-red;
+  font-size: 12px;
+
+  &__icon {
+    @extend .inventory-card__icon;
+    height: 15px;
+  }
+}
+
+.inventory-card__divider--hidden {
+  @extend .inventory-card__divider;
+  @include tablet {
+    display: none;
+  }
+}
