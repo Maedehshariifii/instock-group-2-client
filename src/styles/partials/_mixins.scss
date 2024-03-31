@@ -18,6 +18,38 @@
   }
 }
 
+@mixin setCallToActionPrimary {
+  @include setCallToActionStyleMobile;
+  background-color: $color-instock-indigo;
+  color: white;
+  text-transform: capitalize;
+  border: 0;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+@mixin setCallToActionSecondary {
+  @include setCallToActionPrimary;
+  background-color: $color-white;
+  color: $color-slate;
+  border: 0.5px solid $color-cloud;
+  &:hover {
+    border: 1px solid $color-instock-indigo;
+    color: $color-instock-indigo;
+  }
+}
+
+@mixin setCallToActionDelete {
+  @include setCallToActionStyleMobile;
+  background-color: $color-red;
+  color: white;
+  border: 0;
+  &:hover {
+    background-color: $color-graphite;
+    color: $color-white;
+  }
+}
+
 @mixin setCallToActionStyleMobile {
   display: flex;
   flex-direction: column;
@@ -52,4 +84,64 @@
 @mixin mediumText {
   font-size: 0.82rem;
   line-height: 22px;
+}
+
+@mixin setPageBodyFrameAndPosition {
+  margin: 0 1rem;
+  box-shadow: 0px 2px 5px 0px #13182c1a;
+  background: $color-white;
+  position: relative;
+  top: -4.375rem;
+  border-radius: 0.5rem;
+  padding: 10px 30px 0 30px;
+}
+
+@mixin setFormLabelStyle {
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+  text-transform: capitalize;
+  padding-bottom: 0.5rem;
+  margin: 0;
+}
+
+@mixin setFormTextField($height: 2rem) {
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid $color-cloud;
+  width: 90%;
+  margin-bottom: 1rem;
+  appearance: none;
+}
+
+@mixin setEditPageStyle() {
+  @include setPageBodyFrameAndPosition;
+  padding-bottom: 1rem;
+  h2 {
+    text-transform: capitalize;
+  }
+  &__divider {
+    width: calc(100vw - 2rem);
+    margin: 0 -2rem;
+  }
+
+  @include tablet {
+    margin: 0 2rem;
+    &__form-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__divider {
+      width: unset;
+      margin: 0;
+    }
+  }
+
+  @include desktop() {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }

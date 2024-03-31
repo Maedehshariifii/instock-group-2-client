@@ -43,7 +43,11 @@ const WarehouseDetailsContainer = () => {
           <h1 className="detail-card-container__heading">
             {warehouseData.warehouse_name}
           </h1>
-          <button className="form-cta-details">
+          <button
+            className="form-cta-details"
+            onClick={() => {
+              navigate(`/warehouses/${id}/edit`);
+            }}>
             <img
               src={editIcon}
               alt="Edit Icon"

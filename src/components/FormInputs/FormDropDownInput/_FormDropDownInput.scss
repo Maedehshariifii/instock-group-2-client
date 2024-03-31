@@ -1,0 +1,12 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.form-dropdownlist-ctn {
+  h3 {
+    @include setFormLabelStyle;
+  }
+  &__list {
+    @include setFormTextField;
+    width: 100%;
+  }
+}

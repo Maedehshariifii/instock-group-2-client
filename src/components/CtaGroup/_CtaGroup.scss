@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.cta-group-container {
+  display: flex;
+  justify-content: space-between;
+  button {
+    @include setCallToActionPrimary;
+    width: 45%;
+  }
+}
+
+.cta-group-container-modal {
+  display: flex;
+  justify-content: end;
+  button {
+    width: 20%;
+    margin-left: 2rem;
+    &:nth-child(1) {
+      @include setCallToActionSecondary;
+    }
+    &:nth-child(2) {
+      @include setCallToActionDelete;
+    }
+  }
+}

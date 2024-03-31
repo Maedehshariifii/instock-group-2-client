@@ -53,7 +53,7 @@ const InventoryDetails = () => {
             <button
               className="edit-cta"
               onClick={() => {
-                navigate(`/inventory/edit`);
+                navigate(`/inventory/${id}/edit`);
               }}
             >
               <img
@@ -65,7 +65,7 @@ const InventoryDetails = () => {
             <button
               className="edit-cta--tablet"
               onClick={() => {
-                navigate(`/inventory/edit`);
+                navigate(`/inventory/${id}/edit`);
               }}
             >
               <img
