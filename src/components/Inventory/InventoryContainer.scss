@@ -1,0 +1,101 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.card-container {
+  width: 336px;
+  margin: auto;
+  box-shadow: 0px 2px 5px 0px #13182c1a;
+  background: $color-white;
+  position: relative;
+  top: -70px;
+  border-radius: 5px;
+  padding: 10px 30px 0 30px;
+  @include tablet {
+    width: 690px;
+    padding: 10px 0 0 0;
+  }
+  @include desktop {
+    width: 1000px;
+  }
+
+  &__cta {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 49px;
+      top: 13px;
+    }
+  }
+
+  &__table-heading {
+    display: none;
+    background-color: $color-light-grey;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      padding: 0 2rem;
+    }
+  }
+
+  &__heading {
+    @include pageHeading;
+    color: $color-instock-black;
+
+    @include tablet {
+      padding: 0 2rem;
+    }
+  }
+}
+
+.search {
+  position: relative;
+  width: 328px;
+  height: 40px;
+
+  @include tablet {
+    right: 25px;
+    width: 185px;
+  }
+}
+
+.search__input {
+  width: 100%;
+  padding: 9px;
+  padding-right: 5px; /* Space for the search icon */
+  font-size: 16px;
+  border: 1px solid $color-cloud;
+  border-radius: 20px;
+}
+
+.search__button {
+  position: absolute;
+  right: -10px;
+  top: 2px;
+  width: 40px;
+  height: 100%;
+  background: url("../../assets/icons/search-24px.svg") center no-repeat;
+  background-size: 20px; /* icon's size */
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.form-cta {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 345px;
+  height: 36px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: $color-instock-indigo;
+  color: $color-white;
+
+  @include tablet {
+    width: 128px;
+  }
+}

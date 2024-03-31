@@ -1,0 +1,133 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.detail-card-container {
+  width: 336px;
+  margin: auto;
+  position: relative;
+  top: -70px;
+  box-shadow: 0px 2px 5px 0px #13182c1a;
+  background: $color-white;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding: 10px 30px 0 30px;
+  @include tablet {
+    width: 690px;
+    padding: 10px 0 0 0;
+  }
+
+  &__header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem;
+    padding-inline: 2rem;
+  }
+
+  &__heading{
+    margin:0;
+    padding: 0;
+  }
+
+  &__cta {
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+
+.form-cta-details {
+  margin-left: auto;
+  width: 100px;
+  height: 36px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: $color-instock-indigo;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  @include mobile {
+    width: fit-content !important;
+    
+  }  
+
+  &__text {
+    margin-left: 10px;
+    @include mobile {
+      display: none;
+    }  
+  }
+  &__icon {
+    width: 18px;
+    margin-left: 10px;
+    @include mobile {
+      margin-inline: 3px;
+    }   
+  }
+
+  &__back-icon {
+    cursor: pointer;
+    margin-right: 10px;
+    @include mobile {
+      margin-left: -1rem;
+    }   
+  }
+
+  @include tablet {
+    width: 100px;
+  }
+}
+
+.warehouse-detail-card{
+  padding: 10px 30px 20px 30px;
+  display: flex;
+  margin-bottom: 70px;
+  @include mobile {
+    flex-direction: column;
+    padding: 0px;
+
+  }
+
+  &__column-1 {
+    flex: 1;
+  }
+  &__column-2 {
+    flex: 2;
+    border-left: 1px solid black;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    @include mobile {
+      border-left: 0px solid black;
+      padding-left: 0rem;
+      margin-left: 0rem;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.info-box {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.mobile-top-row {
+  @include mediumText;
+  @include mobile {
+    display: flex;
+    word-wrap: break-word;
+    white-space: initial;
+
+  }
+}
+
+.medium {
+    @include mediumText;
+}

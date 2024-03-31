@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Warehouses from "./pages/Warehouses/Warehouses";
+import Inventory from "./pages/Inventory/Inventory";
+import UnmatchedRoutes from "./pages/UnmatchedRoutes/UnmatchedRoutes";
+import "./_App.scss";
+import WarehouseDetails from "./pages/Warehouses/WarehouseDetails";
+import React, { useState } from "react";
+import AddWarehouse from "./components/Warehouse/AddWarehouse";
 
 function App() {
+  const [selectedWarehouse] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Routes for homepage or warehouses page */}
+        <Route path="/" element={<Warehouses />} />
+
+        <Route path="/warehouses/*" element={<Warehouses />} />
+        {/* Route for a warehouses details page*/}
+        <Route
+          path="/warehouses/:id/inventories"
+          element={<WarehouseDetails key={selectedWarehouse.id} />}
+        />
+        {/* Route for add warehouses page*/}
+        <Route path="/warehouses/add" element={<AddWarehouse />} />
+
+        {/* Route for inventory page */}
+        <Route path="/inventory/*" element={<Inventory />} />
+        {/* Route for unmatched path */}
+        <Route path="/*" element={<UnmatchedRoutes />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

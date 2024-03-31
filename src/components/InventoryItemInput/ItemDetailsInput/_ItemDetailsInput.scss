@@ -1,0 +1,23 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.item-details-input {
+  &__heading {
+    text-transform: capitalize;
+  }
+
+  .text-form-group:nth-child(2) {
+    vertical-align: top;
+
+    input {
+      height: 7.5rem;
+      overflow-wrap: break-word;
+    }
+  }
+  @include tablet {
+    width: 40%;
+  }
+  .form-container {
+    flex-direction: row;
+  }
+}
