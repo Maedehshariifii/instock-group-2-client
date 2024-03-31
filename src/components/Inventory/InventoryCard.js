@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./InventoryCard.scss";
 import RightChevron from "../../assets/icons/chevron_right-24px.svg";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
-import WarehouseDeleteModal from '../InventoryDeleteModal/InventoryDeleteModal';
+import WarehouseDeleteModal from "../InventoryDeleteModal/InventoryDeleteModal";
 
 import { useNavigate } from "react-router-dom";
 
@@ -53,10 +53,8 @@ const InventoryCard = ({ item }) => {
 
             <h4 className="inventory-card__heading--mobile">QTY</h4>
             <p className="inventory-card__item-details">{item.quantity}</p>
-            <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-              WAREHOUSE
-            </h4>
-            <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
+            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
+            <p className="inventory-card__item-details">
               {item.warehouse_name}
             </p>
           </div>
@@ -66,7 +64,8 @@ const InventoryCard = ({ item }) => {
             src={DeleteIcon}
             alt="Detail"
             className="inventory-card__icon"
-            onClick={handleDeleteModalToggle} />
+            onClick={handleDeleteModalToggle}
+          />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
@@ -100,25 +99,25 @@ const InventoryCard = ({ item }) => {
           {item.status.toUpperCase()}
         </p>
         <h4 className="inventory-card__heading--mobile">QTY</h4>
-        <p className="inventory-card__item-details">{item.quantity}</p>
-        <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-          WAREHOUSE
-        </h4>
-        <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
-          {item.warehouse_name}
+        <p className="inventory-card__item-details--quantity">
+          {item.quantity}
         </p>
+        <h4 className="inventory-card__heading--mobile ">WAREHOUSE</h4>
+        <p className="inventory-card__item-details ">{item.warehouse_name}</p>
         <div className="inventory-card__edit-delete">
           <img
             src={DeleteIcon}
             alt="Detail"
             className="inventory-card__icon"
-            onClick={handleDeleteModalToggle} />
+            onClick={handleDeleteModalToggle}
+          />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
-      {isModalVisible && <WarehouseDeleteModal
-        onClose={handleDeleteModalToggle}
-        id={item.id} />}
+      <hr className="inventory-card__divider--tablet"></hr>
+      {isModalVisible && (
+        <WarehouseDeleteModal onClose={handleDeleteModalToggle} id={item.id} />
+      )}
     </>
   );
 };
