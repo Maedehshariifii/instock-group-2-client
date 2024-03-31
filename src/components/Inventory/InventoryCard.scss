@@ -14,7 +14,8 @@
     @include tablet {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding: 0 30px;
     }
   }
 
@@ -39,6 +40,9 @@
   &__item {
     @include mediumText;
     color: $color-instock-indigo;
+    @include tablet {
+      min-width: 95px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -46,6 +50,16 @@
   }
   &__item-details {
     @include mediumText;
+    @include tablet {
+      min-width: 90px;
+    }
+  }
+
+  &__item-details--quantity {
+    @extend .inventory-card__item-details;
+    @include tablet {
+      min-width: 30px;
+    }
   }
 
   &__heading {
@@ -65,7 +79,7 @@
     justify-content: space-between;
 
     @include tablet {
-      justify-content: start;
+      display: block;
     }
   }
 
@@ -119,6 +133,14 @@
     @include tablet {
       width: 100%;
       margin-left: 0;
+      display: none;
+    }
+  }
+
+  &__divider--tablet {
+    display: none;
+    @include tablet {
+      display: block;
     }
   }
 }

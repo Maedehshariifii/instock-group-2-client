@@ -46,10 +46,8 @@ const InventoryCard = ({ item }) => {
 
             <h4 className="inventory-card__heading--mobile">QTY</h4>
             <p className="inventory-card__item-details">{item.quantity}</p>
-            <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-              WAREHOUSE
-            </h4>
-            <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
+            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
+            <p className="inventory-card__item-details">
               {item.warehouse_name}
             </p>
           </div>
@@ -89,18 +87,25 @@ const InventoryCard = ({ item }) => {
           {item.status.toUpperCase()}
         </p>
         <h4 className="inventory-card__heading--mobile">QTY</h4>
-        <p className="inventory-card__item-details">{item.quantity}</p>
-        <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-          WAREHOUSE
-        </h4>
-        <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
-          {item.warehouse_name}
+        <p className="inventory-card__item-details--quantity">
+          {item.quantity}
         </p>
+        <h4 className="inventory-card__heading--mobile ">WAREHOUSE</h4>
+        <p className="inventory-card__item-details ">{item.warehouse_name}</p>
         <div className="inventory-card__edit-delete">
-          <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
-          <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
+          <img
+            src={DeleteIcon}
+            alt="Ddelete Icon"
+            className="inventory-card__icon"
+          />
+          <img
+            src={EditIcon}
+            alt="Edit Icon"
+            className="inventory-card__icon"
+          />
         </div>
       </div>
+      <hr className="inventory-card__divider--tablet"></hr>
     </>
   );
 };
