@@ -1,12 +1,13 @@
 import SortIcon from "../../assets/icons/sort-24px.svg";
 import "./WarehouseContainer.scss";
-
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WarehouseCard from "./WarehouseCard";
 
 const WarehouseContainer = () => {
   const [WarehouseData, setWarehouseData] = useState([]);
+  const navigate = useNavigate();
 
   // This useEffect fetches the Warehouse data when the component mounts
   useEffect(() => {
@@ -34,7 +35,14 @@ const WarehouseContainer = () => {
             />
             <button className="search__button"></button>
           </div>
-          <button className="form-cta">+ Add New Item</button>
+          <button
+            className="form-cta"
+            onClick={() => {
+              navigate(`/warehouses/add`);
+            }}
+          >
+            + Add New Item
+          </button>
         </div>
         <div className="card-container__table-heading">
           <h4 className="warehouse-card__heading">

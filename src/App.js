@@ -5,6 +5,7 @@ import UnmatchedRoutes from "./pages/UnmatchedRoutes/UnmatchedRoutes";
 import "./_App.scss";
 import WarehouseDetails from "./pages/Warehouses/WarehouseDetails";
 import React, { useState } from "react";
+import AddWarehouse from "./components/Warehouse/AddWarehouse";
 
 function App() {
   const [selectedWarehouse] = useState([]);
@@ -20,6 +21,8 @@ function App() {
           path="/warehouses/:id/inventories"
           element={<WarehouseDetails key={selectedWarehouse.id} />}
         />
+        {/* Route for add warehouses page*/}
+        <Route path="/warehouses/add" element={<AddWarehouse />} />
 
         {/* Route for inventory page */}
         <Route path="/inventory/*" element={<Inventory />} />
