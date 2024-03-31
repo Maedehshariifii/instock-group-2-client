@@ -3,7 +3,8 @@ import ItemAvailabilityInput from './ItemAvailabilityInput/ItemAvailabilityInput
 import ItemDetailsInput from './ItemDetailsInput/ItemDetailsInput'
 import './_InventoryItemInput.scss'
 import { useEffect, useState } from 'react';
-import { fetchInventoryById, getCategories, getWarehouses } from '../../utils/helper'
+import { fetchInventoryById, getWarehouseIdByName, updateItem } from '../../utils/helper'
+import CtaGroup from '../CtaGroup/CtaGroup';
 
 export default function InventoryItemInput(props) {
     // extract inventory id from
@@ -11,48 +12,73 @@ export default function InventoryItemInput(props) {
 
     // use useState to store item detail and set new detail
     const [itemDetails, setItemDetails] = useState(null)
-    const [categoryOptions, setCategoryOptions] = useState(null)
-    const [warehouseOptions, setWarehouseOptions] = useState(null)
+    const [formData, setFormData] = useState({});
+    const [warehouseId, setWarehouseId] = useState(null);
+
+
     // use useEffect to load item detail from API 
     useEffect(() => {
         fetchInventoryById(id).then(data => setItemDetails(data.data))
-        // retrieve all categories
-        getCategories().then(data => setCategoryOptions(data.data));
-        // retrieve all warehouse
-        getWarehouses().then(data => setWarehouseOptions(data))
     }, [id]);
 
-    // extract last path in URL to decide whether it's edit or add item
-    // split path into parts, separated by /
-    const pathname = window.location.pathname;
-    const urlParts = pathname.split('/')
-    const currentPath = urlParts[urlParts.length - 1]
+    useEffect(() => {
 
-    const handleCategorySelect = (value) => {
-        console.log(value)
-    }
+        setFormData({
+            warehouse_name: itemDetails?.warehouse_name,
+            item_name: itemDetails?.item_name,
+            description: itemDetails?.description,
+            category: itemDetails?.category,
+            status: itemDetails?.status,
+            quantity: itemDetails?.quantity
+        })
 
-    const handleWarehouseSelect = (value) => {
-        console.log(value)
-    }
-    // renter CTA and select matching REST action 
-    if (itemDetails === null) return null;
+
+    }, [itemDetails])
+
+    const handleFormChange = (name, value) => {
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+        console.log(formData)
+    };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        const itemDetailsToUpdate = formData;
+
+        // add warehouse_id:
+        getWarehouseIdByName(formData.warehouse_name).then(data => setWarehouseId(data))
+        console.log('warehouseId', warehouseId)
+        itemDetailsToUpdate.warehouse_id = warehouseId;
+
+        // // remove warehouse_name
+        delete itemDetailsToUpdate.warehouse_name;
+
+        // replace 0/zero quantity in case out-of-stock
+        itemDetailsToUpdate.quantity = itemDetailsToUpdate.status === 'Out of Stock' ? 0 : itemDetailsToUpdate.quantity
+
+        updateItem(id, itemDetailsToUpdate)
+
+    };
 
     return (
-        <div className={`inventory-${currentPath}`}>
+        <div className='inventory-edit'>
             <h2>
-                {currentPath} inventory item
+                edit inventory item
             </h2>
-            <div className='form-container'>
+            <div className='inventory-edit__form-container'>
                 <ItemDetailsInput
-                    namePlaceHolder={itemDetails.item_name}
-                    descPlaceHolder={itemDetails.description}
-                    categories={categoryOptions}
-                    onCategorySelected={handleCategorySelect} />
+                    itemDetails={itemDetails}
+                    formData={formData}
+                    handleFormChange={handleFormChange} />
+                <hr className='inventory-edit__divider'></hr>
                 <ItemAvailabilityInput
-                    warehouses={warehouseOptions}
-                    handleWarehouseSelect={handleWarehouseSelect} />
+                    formData={formData}
+                    handleFormChange={handleFormChange}
+                    itemDetails={itemDetails} />
             </div>
+            <CtaGroup actionName='edit' handleFormSubmit={handleFormSubmit} />
 
         </div>
     )

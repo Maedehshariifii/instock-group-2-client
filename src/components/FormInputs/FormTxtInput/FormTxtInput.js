@@ -1,17 +1,23 @@
 import './_FormTxtInput.scss'
 
-export default function FormTxtInput({ heading, placeholderText }) {
+export default function FormTxtInput({ name, type, heading, placeholderText, onChange }) {
+
+    const handleChange = (event) => {
+        onChange(name, event.target.value);
+    };
+
     return (
-        <div className="form-group">
-            <label htmlFor={heading}>{heading}</label>
+        <div className="text-form-group">
+            <label className='text-form-group__label' htmlFor={heading}>{heading}</label>
             <input
-                type="text"
+                type={type}
                 id={heading}
-                name={heading}
+                name={name}
                 // value={value}
-                // onChange={onChange}
+                onChange={handleChange}
                 placeholder={placeholderText}
-                className="form-control"
+                className="className='text-form-group__form-field'"
+                required
             />
         </div>
     )

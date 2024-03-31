@@ -1,0 +1,15 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.radio-group {
+  h3 {
+    @include setFormLabelStyle;
+  }
+  .radio-btn-container {
+    display: flex;
+    margin-bottom: 1rem;
+    label {
+      width: 40%;
+    }
+  }
+}

@@ -16,7 +16,6 @@ function Inventory() {
         <Route path=":id" element={<InventoryDetails />} />
         {/* Render the details view */}
         <Route path=":id/edit" element={<InventoryItemInput />} />
-        <Route path=":id/add" element={<InventoryItemInput />} />
 
       </Routes>
       <Footer />
