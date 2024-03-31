@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import InventoryContainer from "../../components/Inventory/InventoryContainer";
 import InventoryDetails from "../../components/Inventory/InventoryDetails";
 import AddInventory from "../../components/Inventory/AddInventory";
+import InventoryItemInput from "../../components/InventoryItemInput/InventoryItemInput";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,9 @@ function Inventory() {
         <Route path=":id" element={<InventoryDetails />} />
         {/* Route for Add Inventory form */}
         <Route path="/add" element={<AddInventory />} />
+        {/* Render the details view */}
+        <Route path=":id/edit" element={<InventoryItemInput />} />
+
       </Routes>
       <Footer />
     </div>

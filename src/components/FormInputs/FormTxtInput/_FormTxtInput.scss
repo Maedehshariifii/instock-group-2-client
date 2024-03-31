@@ -1,0 +1,15 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.text-form-group {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  &__label {
+    @include setFormLabelStyle;
+  }
+
+  input {
+    @include setFormTextField;
+  }
+}

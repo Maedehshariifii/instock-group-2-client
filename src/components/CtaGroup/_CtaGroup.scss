@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.cta-group-container {
+  display: flex;
+  justify-content: space-between;
+  button {
+    @include setCallToActionPrimary;
+    width: 45%;
+  }
+}

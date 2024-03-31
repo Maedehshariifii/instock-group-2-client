@@ -1,0 +1,8 @@
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.item-availability {
+  @include tablet {
+    width: 40%;
+  }
+}

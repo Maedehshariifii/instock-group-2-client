@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-edit {
+  @include setPageBodyFrameAndPosition;
+  padding-bottom: 1rem;
+  h2 {
+    text-transform: capitalize;
+  }
+  &__divider {
+    width: calc(100vw - 2rem);
+    margin: 0 -2rem;
+  }
+
+  @include tablet {
+    &__form-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__divider {
+      width: unset;
+      margin: 0;
+    }
+  }
+}

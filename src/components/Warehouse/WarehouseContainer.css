@@ -1,0 +1,97 @@
+.card-container {
+  width: 336px;
+  margin: auto;
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1019607843);
+  background: #ffffff;
+  position: relative;
+  top: -70px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding: 10px 30px 0 30px;
+}
+@media screen and (min-width: 768px) {
+  .card-container {
+    width: 690px;
+    padding: 10px 0 0 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card-container__cta {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 49px;
+    top: 13px;
+  }
+}
+.card-container__table-heading {
+  display: none;
+  background-color: #f7f8f9;
+}
+@media screen and (min-width: 768px) {
+  .card-container__table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card-container__heading {
+    padding: 0 2rem;
+  }
+}
+
+.search {
+  position: relative;
+  width: 328px;
+  height: 40px;
+}
+@media screen and (min-width: 768px) {
+  .search {
+    right: 25px;
+    width: 185px;
+  }
+}
+
+.search__input {
+  width: 100%;
+  padding: 9px;
+  padding-right: 5px; /* Space for the search icon */
+  font-size: 16px;
+  border: 1px solid #bdc5d5;
+  border-radius: 20px;
+}
+
+.search__button {
+  position: absolute;
+  right: -10px;
+  top: 2px;
+  width: 40px;
+  height: 100%;
+  background: url("../../assets/icons/search-24px.svg") center no-repeat;
+  background-size: 20px; /* icon's size */
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.form-cta {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 345px;
+  height: 36px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #2e66e5;
+  color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .form-cta {
+    width: 128px;
+  }
+}
