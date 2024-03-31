@@ -1,0 +1,112 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../components/Inventory/InventoryContainer.scss" as *;
+@use "../../components/Inventory/InventoryDetails.scss" as *;
+
+.form-heading-add-warehouse {
+  @extend .card-container__heading;
+  font-size: 20px;
+  color: $color-instock-black;
+  margin-left: -2rem;
+  @include mobile {
+    margin-left: 0rem
+  }
+
+}
+
+.form-label-add-warehouse {
+  @extend .inventory-details__card-heading;
+  color: $color-instock-black;
+  padding-bottom: 4px;
+  margin-left: 5px !important;
+}
+
+.form-input-add-warehouse {
+  height: 38px;
+  border-radius: 20px;
+  text-indent: 10px;
+  border: 1px solid $color-cloud;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: $font-titillium-reg-ttf, sans-serif;
+  appearance: none;
+
+  &:focus {
+    border: 1px solid $color-instock-indigo;
+  }
+
+}
+
+.cta-add-warehouse {
+  display: flex;
+  background-color: $color-light-grey;
+  @include mobile {
+    margin-inline: -2rem;
+  }
+}
+
+.form-cta--cancel-add-warehouse {
+  @extend .form-cta;
+  width: 80px !important;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  background-color: $color-white;
+  color: $color-instock-black;
+  border: 1px solid $color-cloud;
+  @include mobile {
+    width: 40% !important;
+  }
+}
+
+.form-cta--add-add-warehouse {
+  @extend .form-cta;
+  width: 140px !important;
+  margin-right: 2rem;
+  @include mobile {
+    width: 40% !important;
+    margin-right: 0rem;
+    margin-right: auto;
+  }
+
+}
+
+.form-error {
+  margin: 0;
+  color: $color-red;
+  font-size: 12px;
+
+  &__icon {
+    @extend .inventory-card__icon;
+    height: 15px;
+  }
+}
+
+.add-warehouse-container {
+  display: flex;
+  padding-inline: 2rem;
+  margin-bottom: 0.5rem;
+
+  @include mobile {
+    flex-direction: column;
+    padding-inline: 0rem;
+  }
+
+  &__column-1 {
+    flex: 1;
+    margin-right: 2rem;
+    @include mobile {
+      margin-right: 0rem;
+    }
+  }
+  &__column-2 {
+    flex: 1;
+    @include mobile{
+      padding-left: 0rem;
+      border-left: 0px solid black;
+      border-top: 1px solid $color-cloud;
+      margin-top: 1.5rem;
+    }
+    padding-left: 2rem;
+    border-left: 1px solid $color-cloud;
+  }
+}
