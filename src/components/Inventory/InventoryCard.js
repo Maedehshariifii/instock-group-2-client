@@ -46,8 +46,10 @@ const InventoryCard = ({ item }) => {
 
             <h4 className="inventory-card__heading--mobile">QTY</h4>
             <p className="inventory-card__item-details">{item.quantity}</p>
-            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
-            <p className="inventory-card__item-details">
+            <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
+              WAREHOUSE
+            </h4>
+            <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
               {item.warehouse_name}
             </p>
           </div>
@@ -88,8 +90,12 @@ const InventoryCard = ({ item }) => {
         </p>
         <h4 className="inventory-card__heading--mobile">QTY</h4>
         <p className="inventory-card__item-details">{item.quantity}</p>
-        <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
-        <p className="inventory-card__item-details">{item.warehouse_name}</p>
+        <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
+          WAREHOUSE
+        </h4>
+        <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
+          {item.warehouse_name}
+        </p>
         <div className="inventory-card__edit-delete">
           <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />

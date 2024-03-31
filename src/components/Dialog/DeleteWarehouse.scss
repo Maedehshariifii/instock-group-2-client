@@ -1,0 +1,112 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.del-box {
+  background-color: $color-white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @include tablet {
+    display: flex;
+    background-color: rgba($color-instock-black, 0.5);
+    padding-top: 12rem;
+    justify-content: center;
+  }
+  @include desktop {
+    background-color: rgba($color-instock-black, 0.5);
+  }
+
+  &__elem {
+    background-color: $color-white;
+    border-radius: 1%;
+    padding: 2.5rem 1rem 30rem 1rem;
+    @include tablet {
+      height: 8rem;
+      width: 40rem;
+      height: 19rem;
+      padding: 1rem 1rem 0rem 1rem;
+      justify-content: center;
+    }
+
+    &--1 {
+      display: flex;
+      flex-direction: row-reverse;
+      @include tablet {
+        left: 80%;
+      }
+    }
+
+    &--2 {
+      height: 49rem;
+      @include tablet {
+        height: 13.5rem;
+        margin: 0rem 2.5rem;
+      }
+
+      &__header {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+      }
+
+      &__par {
+        display: flex;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        padding-bottom: 20rem;
+
+        @include tablet {
+          padding-bottom: 0rem;
+        }
+      }
+
+      &__btns {
+        display: flex;
+        color: $color-white;
+        justify-content: space-between;
+
+        @include tablet {
+          justify-content: flex-end;
+        }
+
+        &__cancel {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          margin-right: 0.5rem;
+          width: 355px;
+          height: 45px;
+          border-radius: 20px;
+          border: none;
+          cursor: pointer;
+          background: $color-white;
+          color: $color-slate;
+          font-weight: 600;
+          border: 1px solid $color-slate;
+
+          @include tablet {
+            width: 83px;
+          }
+        }
+
+        &__del {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          margin-left: 0.5rem;
+          width: 355px;
+          height: 45px;
+          border-radius: 20px;
+          cursor: pointer;
+          background: $color-red;
+          color: $color-white;
+          border: none;
+          @include tablet {
+            width: 83px;
+          }
+        }
+      }
+    }
+  }
+}
