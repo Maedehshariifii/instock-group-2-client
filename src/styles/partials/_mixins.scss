@@ -92,3 +92,34 @@
   margin-bottom: 1rem;
   appearance: none;
 }
+
+@mixin setEditPageStyle() {
+  @include setPageBodyFrameAndPosition;
+  padding-bottom: 1rem;
+  h2 {
+    text-transform: capitalize;
+  }
+  &__divider {
+    width: calc(100vw - 2rem);
+    margin: 0 -2rem;
+  }
+
+  @include tablet {
+    margin: 0 2rem;
+    &__form-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__divider {
+      width: unset;
+      margin: 0;
+    }
+  }
+
+  @include desktop() {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}

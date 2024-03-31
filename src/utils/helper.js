@@ -47,3 +47,22 @@ export async function updateItem(id, newItemDetails) {
         console.error("Error updating item:", error);
     }
 };
+
+export async function getWarehouseById(id) {
+    try {
+
+        const data = await axios.get(`${baseUrl}warehouses/${id}`);
+        return data.data;
+    } catch (error) {
+        console.error("Error fetching Warehouse data:", error);
+    }
+};
+
+export async function updateWarehouse(id, newWarehouseDetails) {
+    try {
+        const response = await axios.put(`${baseUrl}warehouses/${id}`, newWarehouseDetails);
+        console.log('Warehouse updated successfully:', response.data)
+    } catch (error) {
+        console.error("Error updating warehouse:", error);
+    }
+};

@@ -14,7 +14,7 @@ function App() {
         {/* Routes for homepage or warehouses page */}
         <Route path="/" element={<Warehouses />} />
 
-        <Route path="/warehouses" element={<Warehouses />} />
+        <Route path="/warehouses/*" element={<Warehouses />} />
         {/* Route for a warehouses details page*/}
         <Route
           path="/warehouses/:id/inventories"

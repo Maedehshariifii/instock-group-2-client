@@ -40,7 +40,6 @@ export default function InventoryItemInput(props) {
             ...prevState,
             [name]: value
         }));
-        console.log(formData)
     };
 
     const handleFormSubmit = async (e) => {

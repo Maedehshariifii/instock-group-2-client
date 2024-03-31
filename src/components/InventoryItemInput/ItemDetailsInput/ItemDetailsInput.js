@@ -12,7 +12,6 @@ export default function ItemDetailsInput({ itemDetails, handleFormChange, formDa
     }, []);
 
     const handleCategorySelected = (name, value) => {
-        console.log('item details: ', name, value)
         handleFormChange(name, value);
     }
 
