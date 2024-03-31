@@ -77,7 +77,10 @@ export default function InventoryItemInput(props) {
                     handleFormChange={handleFormChange}
                     itemDetails={itemDetails} />
             </div>
-            <CtaGroup actionName='edit' handleFormSubmit={handleFormSubmit} />
+            <CtaGroup
+                actionName='edit'
+                handleFormSubmit={handleFormSubmit}
+                navigateTo='/inventory' />
 
         </div>
     )

@@ -1,13 +1,19 @@
 import './_CtaGroup.scss'
+import { useNavigate } from "react-router-dom";
 
-export default function CtaGroup({ actionName, handleFormSubmit }) {
-
+export default function CtaGroup({ isModal, actionName, handleFormSubmit, onClose, navigateTo }) {
+    const navigate = useNavigate();
     const handleGoBack = () => {
-        window.history.back();
+        if (isModal) {
+            onClose()
+        }
+        navigate(navigateTo)
     }
 
+    const modalClassAddOn = isModal ? '-modal' : ''
+
     return (
-        <div className="cta-group-container">
+        <div className={`cta-group-container${modalClassAddOn}`}>
             <button className="cta-group-container__cancel" onClick={handleGoBack}>
                 Cancel
             </button>

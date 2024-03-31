@@ -1,12 +1,19 @@
+import React, { useState, useEffect } from 'react';
 import "./InventoryCard.scss";
-
 import RightChevron from "../../assets/icons/chevron_right-24px.svg";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
+import WarehouseDeleteModal from '../InventoryDeleteModal/InventoryDeleteModal';
 
 import { useNavigate } from "react-router-dom";
 
 const InventoryCard = ({ item }) => {
+  // add states to decide behaviors of delete modal
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const handleDeleteModalToggle = () => {
+    setModalVisible(!isModalVisible);
+  };
   // Manually replace spaces with hyphens and convert to lowercase for class names
   const statusClass = item.status.split(" ").join("-").toLowerCase();
 
@@ -55,7 +62,11 @@ const InventoryCard = ({ item }) => {
           </div>
         </div>
         <div className="inventory-card__edit-delete">
-          <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
+          <img
+            src={DeleteIcon}
+            alt="Detail"
+            className="inventory-card__icon"
+            onClick={handleDeleteModalToggle} />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
@@ -97,10 +108,17 @@ const InventoryCard = ({ item }) => {
           {item.warehouse_name}
         </p>
         <div className="inventory-card__edit-delete">
-          <img src={DeleteIcon} alt="Detail" className="inventory-card__icon" />
+          <img
+            src={DeleteIcon}
+            alt="Detail"
+            className="inventory-card__icon"
+            onClick={handleDeleteModalToggle} />
           <img src={EditIcon} alt="Detail" className="inventory-card__icon" />
         </div>
       </div>
+      {isModalVisible && <WarehouseDeleteModal
+        onClose={handleDeleteModalToggle}
+        id={item.id} />}
     </>
   );
 };

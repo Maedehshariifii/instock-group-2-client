@@ -66,3 +66,12 @@ export async function updateWarehouse(id, newWarehouseDetails) {
         console.error("Error updating warehouse:", error);
     }
 };
+
+export async function deleteInventoryItem(id) {
+    try {
+        await axios.delete(`${baseUrl}inventories/${id}`);
+        console.log('Item deleted successfully:')
+    } catch (error) {
+        console.error("Error deleting warehouse:", error);
+    }
+}

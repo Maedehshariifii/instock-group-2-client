@@ -62,7 +62,10 @@ export default function WarehouseInput() {
                     handleFormChange={handleFormChange}
                     formData={formData} />
             </div>
-            <CtaGroup actionName='edit' handleFormSubmit={handleFormSubmit} />
+            <CtaGroup
+                actionName='edit'
+                handleFormSubmit={handleFormSubmit}
+                navigateTo='/warehouses' />
 
         </div>
     )
