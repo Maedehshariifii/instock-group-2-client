@@ -4,12 +4,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import { useParams, useNavigate } from "react-router-dom";
+import SortIcon from "../../assets/icons/sort-24px.svg";
 
 import InventoryList from "../../components/Inventory/InventoryList";
 
 const WarehouseDetailsContainer = () => {
   const navigate = useNavigate();
   const [warehouseData, setWarehouseData] = useState([]);
+  const [warehouseInventoryData, setWarehouseInventoryData] = useState([]);
   const { id } = useParams();
 
   // This useEffect fetches the Warehouse data when the component mounts
@@ -27,6 +29,21 @@ const WarehouseDetailsContainer = () => {
     fetchWarehouse();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const fetchInventoriesByWarehouseId = async () => {
+      try {
+        const resp = await axios.get(
+          `http://localhost:8080/api/warehouses/${id}/inventories`
+        );
+        setWarehouseInventoryData(resp.data);
+        console.log(resp.data);
+      } catch (error) {
+        console.error("Error fetching inventories of a warehouse data:", error);
+      }
+    };
+    fetchInventoriesByWarehouseId();
+  }, [id]);
 
   return (
     <>
@@ -47,7 +64,8 @@ const WarehouseDetailsContainer = () => {
             className="form-cta-details"
             onClick={() => {
               navigate(`/warehouses/${id}/edit`);
-            }}>
+            }}
+          >
             <img
               src={editIcon}
               alt="Edit Icon"
@@ -78,10 +96,55 @@ const WarehouseDetailsContainer = () => {
             </div>
           </div>
         </div>
-        <InventoryList />
-        {/* {WarehouseData.map((item) => {
-          return <WarehouseCard key={item.id} item={item} />;
-        })} */}
+        <section className="warehouse-inv-list">
+          <div className="card-container__table-heading">
+            <h4 className="inventory-card__heading">
+              INVENTORY ITEM
+              <img
+                src={SortIcon}
+                alt="Sort Icon"
+                className="inventory-card__icon"
+              />
+            </h4>
+            <h4 className="inventory-card__heading">
+              CATEGORY
+              <img
+                src={SortIcon}
+                alt="Sort Icon"
+                className="inventory-card__icon"
+              />
+            </h4>
+            <h4 className="inventory-card__heading">
+              STATUS
+              <img
+                src={SortIcon}
+                alt="Sort Icon"
+                className="inventory-card__icon"
+              />
+            </h4>
+            <h4 className="inventory-card__heading">
+              QTY
+              <img
+                src={SortIcon}
+                alt="Sort Icon"
+                className="inventory-card__icon"
+              />
+            </h4>
+            <h4 className="inventory-card__heading__warehouse-label">
+              WAREHOUSE
+              <img
+                src={SortIcon}
+                alt="Sort Icon"
+                className="inventory-card__icon"
+              />
+            </h4>
+            <h4 className="inventory-card__heading">ACTIONS </h4>
+          </div>
+
+          {warehouseInventoryData.map((item) => {
+            return <InventoryList key={item.id} item={item} />;
+          })}
+        </section>
       </section>
     </>
   );

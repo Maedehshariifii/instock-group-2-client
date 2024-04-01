@@ -40,7 +40,7 @@ const InventoryCard = ({ item }) => {
               />
             </p>
 
-            <h4 className="inventory-card__heading--mobile ">CATEGORY</h4>
+            <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
             <p className="inventory-card__item-details">{item.category}</p>
           </div>
           <div className="inventory-card__layout--right">
@@ -53,10 +53,8 @@ const InventoryCard = ({ item }) => {
 
             <h4 className="inventory-card__heading--mobile">QTY</h4>
             <p className="inventory-card__item-details">{item.quantity}</p>
-            <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-              WAREHOUSE
-            </h4>
-            <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
+            <h4 className="inventory-card__heading--mobile">WAREHOUSE</h4>
+            <p className="inventory-card__item-details">
               {item.warehouse_name}
             </p>
           </div>
@@ -92,7 +90,7 @@ const InventoryCard = ({ item }) => {
           />
         </p>
 
-        <h4 className="inventory-card__heading--mobile ">CATEGORY</h4>
+        <h4 className="inventory-card__heading--mobile">CATEGORY</h4>
         <p className="inventory-card__item-details">{item.category}</p>
         <h4 className="inventory-card__heading--mobile">STATUS</h4>
         <p
@@ -104,12 +102,8 @@ const InventoryCard = ({ item }) => {
         <p className="inventory-card__item-details--quantity">
           {item.quantity}
         </p>
-        <h4 className="inventory-card__heading--mobile inventory-card__hide-warehouse-label">
-          WAREHOUSE
-        </h4>
-        <p className="inventory-card__item-details inventory-card__hide-warehouse-val">
-          {item.warehouse_name}
-        </p>
+        <h4 className="inventory-card__heading--mobile ">WAREHOUSE</h4>
+        <p className="inventory-card__item-details ">{item.warehouse_name}</p>
         <div className="inventory-card__edit-delete">
           <img
             src={DeleteIcon}
