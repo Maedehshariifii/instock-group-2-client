@@ -4,18 +4,8 @@
 .warehouse-card {
   padding: 20px;
 
-  @include tablet {
-    display: none;
-  }
-
   &--tablet {
     display: none;
-
-    @include tablet {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-    }
   }
 
   &__icon {
@@ -26,10 +16,9 @@
   &__item {
     @include mediumText;
     color: $color-instock-indigo;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
-    
   }
   &__item-details {
     @include mediumText;
@@ -42,26 +31,15 @@
 
   &__heading--mobile {
     @extend .warehouse-card__heading;
-    @include tablet {
-      display: none;
-    }
   }
 
   &__edit-delete {
     display: flex;
     justify-content: space-between;
-
-    @include tablet {
-      justify-content: start;
-    }
   }
 
   &__layout {
     display: flex;
-
-    @include tablet {
-      flex-direction: row; // Only for the overall layout, not individual items
-    }
   }
 
   &__layout--left {
@@ -74,10 +52,36 @@
 
   &__divider {
     color: $color-cloud;
-    width: 395px;
-    margin-left: -30px;
+    margin: 0 -2rem;
+  }
 
-    @include tablet {
+  @include tablet {
+    display: none;
+    &__item {
+      width: 15%;
+    }
+
+    &__item-details {
+      width: 18%;
+    }
+    &--tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    &__heading--mobile {
+      display: none;
+    }
+    &__edit-delete {
+      justify-content: space-between;
+      width: 8%;
+    }
+
+    &__layout {
+      flex-direction: row; // Only for the overall layout, not individual items
+    }
+
+    &__divider {
       width: 100%;
       margin-left: 0;
     }

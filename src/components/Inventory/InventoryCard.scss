@@ -127,8 +127,7 @@
 
   &__divider {
     color: $color-cloud;
-    width: 395px;
-    margin-left: -30px;
+    margin: 0 -2rem;
 
     @include tablet {
       width: 100%;

@@ -114,18 +114,15 @@ const WarehouseCard = ({ item }) => {
           </div>
         </div>
         <div className="warehouse-card__edit-delete">
-          <div
-            className="warehouse-card__delete"
-            onClick={(e) => handleDeleteWarehouse(e, item.id)}
-          >
-            <img
-              src={DeleteIcon}
-              alt="Detail"
-              className="warehouse-card__icon"
-            />
-          </div>
-
-          <img src={EditIcon} alt="Detail" className="warehouse-card__icon" />
+          <img
+            src={DeleteIcon}
+            alt="Detail"
+            className="warehouse-card__icon"
+            onClick={(e) => handleDeleteWarehouse(e, item.id)} />
+          <img
+            src={EditIcon}
+            alt="Detail"
+            className="warehouse-card__icon" />
         </div>
         {dialog.isLoading && (
           <DeleteWarehouse
@@ -163,18 +160,16 @@ const WarehouseCard = ({ item }) => {
           {item.contact_email}
         </p>
         <div className="warehouse-card__edit-delete">
-          <div
-            className="warehouse-card__delete"
+          <img
+            src={DeleteIcon}
+            alt="Detail"
+            className="warehouse-card__icon"
             onClick={(e) => handleDeleteWarehouse(e, item.id)}
-          >
-            <img
-              src={DeleteIcon}
-              alt="Detail"
-              className="warehouse-card__icon"
-            />
-          </div>
-
-          <img src={EditIcon} alt="Detail" className="warehouse-card__icon" />
+          />
+          <img
+            src={EditIcon}
+            alt="Detail"
+            className="warehouse-card__icon" />
         </div>
         {dialog.isLoading && (
           <DeleteWarehouse

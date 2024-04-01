@@ -1,45 +1,15 @@
 .card-container {
-  width: 336px;
-  margin: auto;
+  margin: 0 1rem;
   box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1019607843);
   background: #ffffff;
   position: relative;
-  top: -70px;
-  border-radius: 5px;
+  top: -4.375rem;
+  border-radius: 0.5rem;
   padding: 10px 30px 0 30px;
-}
-@media screen and (min-width: 768px) {
-  .card-container {
-    width: 690px;
-    padding: 10px 0 0 0;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .card-container {
-    width: 1000px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .card-container__cta {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 49px;
-    top: 13px;
-  }
 }
 .card-container__table-heading {
   display: none;
   background-color: #f7f8f9;
-}
-@media screen and (min-width: 768px) {
-  .card-container__table-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    padding: 0 2rem;
-  }
 }
 .card-container__heading, .form-heading {
   font-size: 28px;
@@ -48,6 +18,23 @@
   color: #13182c;
 }
 @media screen and (min-width: 768px) {
+  .card-container {
+    margin: 0 2rem;
+  }
+  .card-container__cta {
+    align-items: center;
+    position: absolute;
+    display: flex;
+    right: 49px;
+    top: 13px;
+  }
+  .card-container__table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 2rem;
+  }
   .card-container__heading, .form-heading {
     padding: 0 2rem;
   }
@@ -119,7 +106,8 @@
   .inventory-card--tablet {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 30px;
   }
 }
 .inventory-card__icon, .form-error__icon, .inventory-card__icon--details {
@@ -142,12 +130,27 @@
   line-height: 22px;
   color: #2e66e5;
 }
+@media screen and (min-width: 768px) {
+  .inventory-card__item {
+    min-width: 95px;
+  }
+}
 .inventory-card__item:hover {
   cursor: pointer;
 }
-.inventory-card__item-details {
+.inventory-card__item-details, .inventory-card__item-details--quantity {
   font-size: 0.82rem;
   line-height: 22px;
+}
+@media screen and (min-width: 768px) {
+  .inventory-card__item-details, .inventory-card__item-details--quantity {
+    min-width: 90px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .inventory-card__item-details--quantity {
+    min-width: 30px;
+  }
 }
 .inventory-card__heading, .inventory-details__card-heading, .form-label, .inventory-card__heading--mobile {
   font-weight: 600;
@@ -166,7 +169,7 @@
 }
 @media screen and (min-width: 768px) {
   .inventory-card__edit-delete {
-    justify-content: start;
+    display: block;
   }
 }
 .inventory-card__status {
@@ -209,13 +212,21 @@
 }
 .inventory-card__divider, .inventory-card__divider--hidden {
   color: #bdc5d5;
-  width: 395px;
-  margin-left: -30px;
+  margin: 0 -2rem;
 }
 @media screen and (min-width: 768px) {
   .inventory-card__divider, .inventory-card__divider--hidden {
     width: 100%;
     margin-left: 0;
+    display: none;
+  }
+}
+.inventory-card__divider--tablet {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .inventory-card__divider--tablet {
+    display: block;
   }
 }
 
