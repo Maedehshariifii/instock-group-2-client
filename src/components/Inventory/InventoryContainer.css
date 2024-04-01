@@ -39,6 +39,12 @@
     padding: 0 2rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .card-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
 
 .search {
   position: relative;

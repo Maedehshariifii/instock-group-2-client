@@ -35,6 +35,11 @@
       padding: 0 2rem;
     }
   }
+
+  @include desktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
 
 .search {
