@@ -2,50 +2,36 @@
 @use "../../styles/partials/mixins" as *;
 
 .card-container {
-  width: 336px;
-  margin: auto;
-  box-shadow: 0px 2px 5px 0px #13182c1a;
-  background: $color-white;
-  position: relative;
-  top: -70px;
-  border-radius: 5px;
-  padding: 10px 30px 0 30px;
-  @include tablet {
-    width: 690px;
-    padding: 10px 0 0 0;
-  }
-  @include desktop {
-    width: 1000px;
-  }
-
-  &__cta {
-    @include tablet {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      right: 49px;
-      top: 13px;
-    }
-  }
+  @include setPageBodyFrameAndPosition;
 
   &__table-heading {
     display: none;
     background-color: $color-light-grey;
+  }
 
-    @include tablet {
+  &__heading {
+    @include pageHeading;
+    color: $color-instock-black;
+  }
+
+  @include tablet {
+    margin: 0 2rem;
+    &__cta {
+      align-items: center;
+      position: absolute;
+      display: flex;
+      right: 49px;
+      top: 13px;
+    }
+
+    &__table-heading {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 40px;
       padding: 0 2rem;
     }
-  }
-
-  &__heading {
-    @include pageHeading;
-    color: $color-instock-black;
-
-    @include tablet {
+    &__heading {
       padding: 0 2rem;
     }
   }
